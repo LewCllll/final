@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XLanguage</title>
+   	<link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  	<link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="mycss.css">
+</head>
+<body>
+<div id = "body">
+	<header>
+		<img src = "logo.png" id= "logo">
+		<p>XLanguage</p>
+	</header>
+
+	
+	<nav class="navbar navbar-default">  
+  		<div class="container-fluid">
+
+    	<div class="navbar-collapse row" id="navbar">   
+      		<ul class="nav navbar-nav navbar-left">   
+        		<li>
+        		<a href="mycss.css" class="news">What's New </a>
+        		</li> 
+      		</ul>
+ 
+      		<ul class="nav navbar-nav navbar-center"> 
+        		<form class="navbar-form navbar-left" role="search">
+        			<div class="form-group">
+          				<input type="text" class="form-control" placeholder="Search">
+        			</div>
+        			<button type="submit" class="btn btn-default">Search for X-Languager</button>
+     			</form>
+     		</ul>
+
+       		<ul class="nav navbar-nav navbar-right"> 
+        		<li class="dropdown"> 
+          		<a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Information 
+          		<span class="caret"></span>
+          		</a>
+          
+          		<ul class="dropdown-menu" role="menu">
+            		<li><a role="menuitem" href="#">Profile</a></li>
+            		<li><a role="menuitem" href="#">Following</a></li>
+          		</ul>
+        		</li>
+      		</ul>
+    	</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container-fluid -->
+  	</nav>
+
+  	<div class="body_info">
+          <div class="profile row"> <!-- 12欄 -->
+              <div class="col-md-3" id="profile_left">
+                <img src="profile.jpg" id="profile_pic">
+                <p id="Person_name"> Person's Name</p>
+
+                <div class="button row">                
+                  <div class="col-md-6">
+                 
+
+                 <!-- <button type="button" id="invite" class="button1" data-target="#myModal">Invite</button>-->
+                 <button type="button" class="button1" data-toggle="modal" data-target="#myModal">Invite</button>
+                    
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button> <!-- xx -->
+                            
+                            <p class="modal-title">XLanguage</p>
+                            
+                          </div>
+                          
+                          <div class="modal-body">
+
+                          <div class="tab row">
+                                <div class="step col-md-3">
+                                    <p class="step_text"> STEP 01 <br>| 選定交換對象 </p>
+                                </div>
+                                <div class="step col-md-3">
+                                    <p class="step_text"> STEP 02 <br>| 挑個好日子 </p>
+                                </div>
+
+                                <div class="step col-md-3">
+                                    <p class="step_text"> STEP 03 <br>| 風水寶地 </p>
+                                </div>
+
+                                <div class="step2 col-md-3">
+                                    <p class="step_text"> STEP 04 <br>| 恭喜完成 </p>
+                                </div>
+
+                          </div>
+                            
+                            <div class="main_inviter">
+                            <img src="profile.jpg" id="inviter">
+                            <p class="inviter_name">主要受訪者</p>
+                            </div>
+
+                            <div class="other_inviter">
+                            <img src="plus.png" class="plus">
+                            <img src="profile.jpg" class="other_inviterpic">
+                            <img src="profile.jpg" class="other_inviterpic">
+                            <img src="profile.jpg" class="other_inviterpic">
+                            <img src="profile.jpg" class="other_inviterpic">
+                            <img src="profile.jpg" class="other_inviterpic">
+                            <p class="other_inviter_name"> 次要受訪者</p>
+                            </div>
+
+                          </div>
+                          
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Next Step</button>
+                          
+                          </div>
+                        </div>    
+                      
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="col-md-6">
+                  <button type="button" id="message" class="button1">Message</button>
+                  </div>
+
+                </div>
+
+                <div class="pro_left">
+
+                  <div class="follow">
+                    <p id="followers"> FOLLOWERS </p>
+                    <p id="followings"> FOLLOWINGS </p>
+                  </div>
+                  
+                  <div class="addition">
+                    <a id="blog"> BLOG</a>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-9" id="profile_right">
+                 <div class="pro_right">
+                      <div class="follow_right">
+                          <span id="followers_right"> <a>FOLLOWERS </a>  </span>
+                          <span id="following_right"> <a>FOLLOWINGS </a> </span>
+
+                          <div class="who_follow row">
+                          <div class="col-md-3">
+                            <img src="profile.jpg" id="follow_pic">
+                            <button type="button" id="follow+" class="button_follow">+FOLLOW</button>
+
+                            <img src="profile.jpg" id="follow_pic2">
+                            <button type="button" id="follow+" class="button_follow">+FOLLOW</button>
+
+                            <img src="profile.jpg" id="follow_pic3">
+                            <button type="button" id="follow+" class="button_follow">+FOLLOW</button>
+
+                            <img src="profile.jpg" id="follow_pic4">
+                            <button type="button" id="follow+" class="button_follow">+FOLLOW</button>
+
+                            <img src="profile.jpg" id="follow_pic5">
+                            <button type="button" id="follow+" class="button_follow">+FOLLOW</button>
+
+                          </div>
+
+                          <div class="col-md-9">
+                              <!---<div class="pro_text">-->
+                              <div id="pro_test">
+                              </div>
+
+                              <div id="pro_test2">
+                              </div>
+
+                              <div id="pro_test3">
+                              </div>
+
+                              <div id="pro_test4">
+                              </div>
+
+                              <div id="pro_test5">
+                              </div>
+                              <!--</div>-->
+                          </div>
+
+                          </div>
+
+                      </div>
+
+                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  	<footer class="footer">
+  		<br>
+  		<a id="home_page">X Language</a>
+  		<br>
+  		<a id="about_us">about us</a>
+  	</footer>
+
+</div>
+</body>
+
+
+</html>

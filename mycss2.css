@@ -1,0 +1,77 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+#logo{
+	margin: 5px;
+	padding: 5px;
+	float:left;
+	width:15%;
+}
+
+#body{
+	width:65%;
+	margin:auto;
+}
+
+body{
+	background-image:url(background.png);
+}
+header{
+	display:block;
+	width:100%;
+}
+
+header>p{
+	margin-left: 25%;
+	font-size: 100px;
+	font-family: cursive;	
+}
+
+
+#small-profile{
+	width:10%;
+	height:10%;
+}
+
+
+.body_info{
+	min-height: 1500px;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.footer{
+	height:200px;
+	background-color: gray;
+	width:100%;
+}
+
+#home_page{
+	font-size: 40px;
+	font-family: cursive;
+	margin-left: 5%;
+	color: white;
+}
+#about_us{
+	font-size:25px;
+	font-family: cursive;
+	margin-left: 10%;
+	color:white;
+}
+
+footer{
+	display:block;
+}
+
+
+.modal-content{
+	position:fixed;
+	font-family:Arial, Helvetica, sans-serif;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background:rgba(0,0,0,0.8);
+	z-index:99999;
+	opacity: 0;
+}
