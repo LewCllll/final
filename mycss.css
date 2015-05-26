@@ -35,9 +35,6 @@ header>p{
 
 .body_info{
 	min-height: 1050px;
-	/*border-color: black;
-	border-width: 2px;
-	border-style: solid;*/
 }
 
 .footer{
@@ -98,18 +95,24 @@ footer{
 	background-color: black;
 	margin-left:3%;
 	margin-top: 8%;
-	height:150px;
+	height:75px;
 	width:225px;
 }
 
 .follow{
-	border-bottom: solid;
-	border-width:2px;
-	color:white;
 	padding-left:10px;
 	padding-top:5px;
-	font-size:15px;
-	margin-top: 20px;
+}
+
+#followers{
+	color:white;
+	padding-top:15px;
+	font-size:20px;
+}
+#followings{
+	color:white;
+	padding-top:15px;
+	font-size:20px;	
 }
 
 #blog{
@@ -123,11 +126,6 @@ footer{
 	margin-top: 10px;
 }
 
-/*
-#profile_right{
-	margin-left: 10%;
-}
-*/
 
 .pro_right{
 	height:950px;
@@ -215,34 +213,13 @@ footer{
 }
 
 
-#pro_test{
+.pro_test{
 	width:350px;
 	height:110px;
 	background-color: white;
 }
 
-#pro_test2{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
-}
-
-#pro_test3{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
-}
-
-#pro_test4{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
-}
-
-#pro_test5{
+.pro_test2{
 	width:350px;
 	height:110px;
 	background-color: white;
@@ -254,7 +231,6 @@ footer{
 	width:700px;
 	background-color: white;
 	position:fixed;
-	/*margin-left:5%;*/	
 	margin-top:3%;
 }
 
@@ -325,3 +301,10 @@ footer{
 .inviter_name{
 	margin-top:3%;
 }
+
+#calendar{
+	width:120%;
+	height:120%;
+	margin-top: 5%;
+}
+

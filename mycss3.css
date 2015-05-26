@@ -35,9 +35,6 @@ header>p{
 
 .body_info{
 	min-height: 1050px;
-	/*border-color: black;
-	border-width: 2px;
-	border-style: solid;*/
 }
 
 .footer{
@@ -98,18 +95,24 @@ footer{
 	background-color: black;
 	margin-left:3%;
 	margin-top: 8%;
-	height:150px;
+	height:75px;
 	width:225px;
 }
 
 .follow{
-	border-bottom: solid;
-	border-width:2px;
-	color:white;
 	padding-left:10px;
 	padding-top:5px;
-	font-size:15px;
-	margin-top: 20px;
+}
+
+#followers{
+	color:white;
+	padding-top:15px;
+	font-size:20px;
+}
+#followings{
+	color:white;
+	padding-top:15px;
+	font-size:20px;	
 }
 
 #blog{
@@ -123,11 +126,6 @@ footer{
 	margin-top: 10px;
 }
 
-/*
-#profile_right{
-	margin-left: 10%;
-}
-*/
 
 .pro_right{
 	height:950px;
@@ -145,106 +143,104 @@ footer{
 	padding-top: 20px;
 }
 
-#following_right{
-	padding-left: 8%;
-	padding-bottom: 5px;
-	
-	border-bottom-width: 1px;
-	border-color:black;
-	border-bottom-style: solid;
+
+.modal-content{
+	height:550px;
+	width:700px;
+	background-color: white;
+	position:fixed;
+	margin-top:3%;
 }
 
-#followers_right{
-	padding-left: 8%;
-	padding-bottom: 5px;
-	
-	border-bottom-width: 1px;
-	border-color:black;
-	border-bottom-style: solid;
+.modal-header{
+	height:15%;
+	width:100%;
+	background-color: black;
 }
 
-#follow_pic2{
-	width:60%;
-	height:60%;
-	margin-top: 50px;
+.step{
+	background:rgba(0,0,0,0.5);
+	border-right-color: white;
+	border-right-width: 1px;
+	border-right-style: solid;
 }
 
-#follow_pic3{
-	width:60%;
-	height:60%;
-	margin-top: 50px;
+.step2{
+	background:rgba(0,0,0,0.5);	
+}
+.tab{
+	margin-left: 5px;
+	margin-top:2%;
+	margin-right:5px;
 }
 
-#follow_pic4{
-	width:60%;
-	height:60%;
-	margin-top: 50px;
+.step_text{
+	color:white;
 }
 
-#follow_pic5{
-	width:60%;
-	height:60%;
-	margin-top: 50px;
+.modal-title{
+	color:white;
+	font-family: cursive;
+	margin-left: 10px;
+	font-size:35px;	
 }
 
-#follow_pic{
-	width:60%;
-	height:60%;
+#inviter{
+	width:15%;
+	height:15%;
 }
 
-.who_follow{
-	margin-left: 8%;
-	margin-top: 8%;
+.main_inviter{
+	margin-left:10%;
+	margin-top:5%;
 }
 
-.protext{
-	/*margin-left: 8%;*/
-	margin-top: 8%;
+.plus{
+	width:50px;
 	height:50px;
-	background-color: white;
-
+	margin-right: 30px;
 }
 
-.button_follow{
-	width:80px;
-	height:30px;
-	border:3px;
-	background-color: white;
-	margin-top: 15%;
-	/*margin-left: %;*/
+.other_inviterpic{
+	width:10%;
+	height:10%;
+	margin-right: 20px;	
 }
 
-
-#pro_test{
-	width:350px;
-	height:110px;
-	background-color: white;
+.other_inviter{
+	margin-left:10%;
+	margin-top:5%;
 }
 
-#pro_test2{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
+.other_inviter_name{
+	margin-top: 3%;
 }
 
-#pro_test3{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
+.inviter_name{
+	margin-top:3%;
 }
 
-#pro_test4{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
+#calendar{
+	width:120%;
+	height:120%;
+	margin-top: 5%;
 }
 
-#pro_test5{
-	width:350px;
-	height:110px;
-	background-color: white;
-	margin-top: 14%;
+.simple_info >p{
+	font-size:15px;
+	font-family:cursive;
+}
+
+.personal_info{
+	margin-left:10%;
+	margin-top:5%;
+}
+
+.about_me{
+	font-size:15px;
+	border-color: gray;
+	border-width: 1px;
+	border-style: solid;
+	margin-right:10px;
+	margin-top:10px;
 }
