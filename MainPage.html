@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="whatsnew.css">
+    <link rel="stylesheet" type="text/css" href="mainpage.css">
 </head>
 <body>
 <div id = "body">
@@ -45,7 +46,7 @@
               </a>
           
               <ul class="dropdown-menu" role="menu">
-                <li><a role="menuitem" href="#">Profile</a></li>
+                <li><a role="menuitem" href="profile.html">Profile</a></li>
                 <li><a role="menuitem" href="#">Following</a></li>
               </ul>
             </li>
@@ -55,21 +56,48 @@
     </nav>
 
     <div class="body_info">
-          <div class="news row"> <!-- 12欄 -->
-              <div class="col-md-12" id="dailyFeed">
-                <img src="dailyFeed.jpg" id="dailyFeed_pic">
-               
-              </div>
-              
-              <div class="col-md-12">                
-                  <p>What's News</p>
-                  <img src="newsFeed_picLeft.png" class="col-md-3" id="newsFeed_picLeft">
-                  <img src="newsFeed_picMiddle.png" class="col-md-3" id="newsFeed_picMiddle">
-                  <img src="newsFeed_picRight.png" class="col-md-3" id="newsFeed_picRight">
-              
-              </div>   
 
+        <img src="hello.jpg" id="banner_pic">
+
+        <div class="step row">
+           <div class="col-md-4" id="step_1">
+              <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NYCS-bull-trans-1.svg/50px-NYCS-bull-trans-1.svg.png" class="step_pic" href="#"><br>
+              <p class="step_text"> Search by Language</p>
+           </div>
+
+            <div class="col-md-4" id="step_2">
+              <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NYCS-bull-trans-2.svg/50px-NYCS-bull-trans-2.svg.png" class="step_pic" href="#">
+              <p class="step_text"> Search by Account </p>
+           </div>
+
+            <div class="col-md-4" id="step_3">
+              <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/NYCS-bull-trans-3.svg/50px-NYCS-bull-trans-3.svg.png" class="step_pic" href="whatsnew.html"><br>
+              <p class="step_text"> What's New </p>
+           </div>
         </div>
+
+        <div id="callToAction" align=center >
+          <p>Start to <img src="https://www.onx.ms/images/close.png" id="xlang">Language!</p>
+        </div>
+          
+        <div class="recommend row">
+            <div class="col-md-4 img-responsive " id="recommend_1">
+              <p class="dialog_text">好棒棒!</p><br>
+              <img src="profile.jpg " class="recommender img-circle">
+
+            </div>
+
+            <div class="col-md-4 img-responsive" id="recommend_2">
+              <p class="dialog_text">快來快來~</p><br>
+              <img src="profile.jpg" class="recommender img-circle">
+            </div>
+
+            <div class="col-md-4 img-responsive" id="recommend_3">
+              <p class="dialog_text">脫魯邁向國際<br>為人生勝利組</p><br>
+              <img src="profile.jpg" class="recommender img-circle">
+            </div>
+        </div>
+
     </div>
 
     <footer class="footer">
