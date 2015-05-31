@@ -1,140 +1,33 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
-#logo{
-	margin: 5px;
-	padding: 5px;
-	float:left;
-	width:15%;
-}
-
-#body{
-	width:65%;
-	margin:auto;
-}
-
-body{
-	background-image:url(background.png);
-}
-header{
-	display:block;
-	width:100%;
-}
-
-header>p{
-	margin-left: 25%;
-	font-size: 100px;
-	font-family: cursive;	
-}
-
-
-#small-profile{
-	width:10%;
-	height:10%;
-}
-
-
-.body_info{
-	min-height: 1050px;
-	/*border-color: black;
-	border-width: 2px;
-	border-style: solid;*/
-}
-
-.footer{
-	height:200px;
-	background-color: gray;
-	width:100%;
-}
-
-#home_page{
-	font-size: 40px;
-	font-family: cursive;
-	margin-left: 5%;
-	color: white;
-}
-#about_us{
-	font-size:25px;
-	font-family: cursive;
-	margin-left: 10%;
-	color:white;
-}
-
-footer{
-	display:block;
-}
-
-
-#profile_pic{
-	width:75%;
-	height:75%;
-	margin-left:15%;
-	margin-top: 20%;
-
-}
-
-#Person_name {
-	font-size:25px;
-	font-family:serif;
-	margin-top: 8%;
-	margin-left: 15%;
-	border-bottom: solid;
-	border-width:2px;
-}
-
-.button1{
-	width:80px;
-	height:30px;
-	border:3px;
-	background-color: white;
-	margin-top: 10%;
-	margin-left: 15%;
-}
-
-#profile_left{
-
-}
-
-.pro_left{
-	background-color: black;
-	margin-left:3%;
-	margin-top: 8%;
-	height:150px;
-	width:225px;
-}
-
-.follow{
-	border-bottom: solid;
-	border-width:2px;
-	color:white;
-	padding-left:10px;
-	padding-top:5px;
-	font-size:15px;
-	margin-top: 20px;
-}
-
-#blog{
-	padding-top:20px;
-	padding-left:10px;
-	color:white;
-	font-size:15px;
-}
-
-.addition{
-	margin-top: 10px;
-}
-
 /*
 International newsFeed
 */
 
-#newsFeed_picLeft:hover,#newsFeed_picMiddle:hover,#newsFeed_picRight{
+#newsFeed_picLeft:hover,#newsFeed_picMiddle:hover,#newsFeed_picRight:hover{
     background-color: #50FCCE;
 }
 
+#dailyFeed_pic{
+	width:75%;
+	margin-left: 15%;
+	margin-bottom: 5%;
+}
 
 
+.whats_new >p{
+	font-size: 50px;
+	text-align: center;
+}
 
 
+#newsFeed_picRight{
+	height:auto;
+}
+
+.whats_new{
+	margin-bottom: 5%;
+}
 
 
 

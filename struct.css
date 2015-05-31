@@ -1,5 +1,4 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-
 #logo{
 	margin: 5px;
 	padding: 5px;
@@ -34,10 +33,7 @@ header>p{
 
 
 .body_info{
-	min-height: 1500px;
-	border-color: black;
-	border-width: 2px;
-	border-style: solid;
+	min-height: 1050px;
 }
 
 .footer{
@@ -61,17 +57,4 @@ header>p{
 
 footer{
 	display:block;
-}
-
-
-.modal-content{
-	position:fixed;
-	font-family:Arial, Helvetica, sans-serif;
-	top:0;
-	right:0;
-	bottom:0;
-	left:0;
-	background:rgba(0,0,0,0.8);
-	z-index:99999;
-	opacity: 0;
 }
