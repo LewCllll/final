@@ -1,0 +1,119 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+.input-lg{
+  width:200px;
+}
+
+.t-check:hover{
+  background-color:#FFFF3F;
+}
+
+input:focus{
+  background-color:#F2E394;
+}
+
+input:checked+.t-check{
+  color:#8c4646;
+  background-color:rgba(300,250,118,0.8);
+  
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[name=language]{
+  display:none;
+}
+
+label.t-check{
+  display:inline-block;
+  width:100%;
+  background-color:rgba(255,255,255,0.3);
+  margin:6px 5px;
+  padding:1em 1em;
+}
+
+.sort{
+  float:right;
+  margin-right: 7%;
+}
+
+.criteria{
+  text-decoration:underline;
+}
+
+.criteria:hover{
+  color:blue;
+}
+
+.profile{
+  display:inline-block;
+  width:100%;
+  margin-bottom: 8%;
+  margin-top: 3%;
+}
+
+.extra_info{
+  font-size:20px;
+  margin-top: 7%;
+}
+
+
+.description{
+  display:inline-block;
+  padding:1em 1em;  
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+}
+
+.name{
+  font-size:2em;
+}
+
+.extra_info span{
+  margin-right: 1.5em;
+  margin-top: 1em;
+}
+
+.infoIcon canvas{
+  width:50px;
+  height:50px;
+  border-radius: 10px;
+  background-color:#F2E394;
+  margin:0.5em;
+}
+
+img{
+  max-height:100%;
+  max-width:100%;
+}
+
+.infoIcon{
+  margin:3em auto;
+}
+
+
+.country_lang>p , .other_way>p{
+	font-size:25px;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.country_lang, .other_way{
+	border-width: 2px;
+	border-style: dotted;
+	border-color: black;
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-bottom: 5%; 
+}
+
+#follow_pic{
+	margin-top: 10%;
+	height:80%;
+	width:80%;
+	margin-left: 5%;
+}
