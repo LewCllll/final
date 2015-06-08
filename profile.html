@@ -3,191 +3,213 @@
 <head>
   <meta charset="utf-8">
   <title>XLanguage</title>
-   	<link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-  	<link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-  	<script src="http://code.jquery.com/jquery.min.js"></script>
-	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  	<link rel="stylesheet" type="text/css" href="struct.css">
-    <link rel="stylesheet" type="text/css" href="profile.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="struct.css">
+  <link rel="stylesheet" type="text/css" href="profile.css">
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="tab.js"></script>
+
 </head>
+
+
 <body>
-<div id = "body">
-	<header>
-		<a href="MainPage.html">
-    <img src = "logo.png" id= "logo"></a>
-		<p>XLanguage</p>
-	</header>
 
-	
-<nav class="navbar navbar-default">  
-      <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
 
-      <div class="navbar-collapse row" id="navbar">   
-          <ul class="nav navbar-nav navbar-left">   
-            <li>
-            <a href="whatsnew.html" class="news">What's New </a>
-            </li> 
-          </ul>
- 
-          <ul class="nav navbar-nav navbar-center"> 
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Search for X-Languager</button>
-          </form>
-        </ul>
+              <a class="brand" href="#">
+              <img src="logo.png" id="logo"></a>
+            </div>
 
-          <ul class="nav navbar-nav navbar-right"> 
-            <li class="dropdown"> 
-              <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Information 
-              <span class="caret"></span>
-              </a>
-          
-              <ul class="dropdown-menu" role="menu">
-                <li><a role="menuitem" href="profile.html">Profile</a></li>
-                <li><a role="menuitem" href="follow.html">Following</a></li>
+
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">About Us</a></li>
+
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> XLanguager<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  
+                  <div class="display_inline">
+                  <ul>
+                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                  </ul>
+                  </div>
+                  
+                  <div class="display_inline">
+                  <ul>
+                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                  </ul>
+                  </div>
+
+                  <div class="display_inline">
+                  <ul>
+                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                  </ul>
+                  </div>
+                </ul>
+                </li>
+
+                <li>
+                <form class="navbar-form" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <a class="fa fa-search" href="#" ></a>
+                </form>
+                </li>
               </ul>
-            </li>
-          </ul>
-      </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
 
-  	<div class="body_info">
-          <div class="profile row"> <!-- 12欄 -->
-              <div class="col-md-3" id="profile_left">
-                <img src="profile.jpg" id="profile_pic">
-                <p id="Person_name"> Person's Name</p>
+              <!--
+              <ul class="nav pull-right">
+                 <li><a> <span data-toggle="modal" data-target="#regist-modal">註冊</span></a></li>
+                 <li><a class="separator"> <span>|</span></a></li>
+                 <li><a href="#" data-ga-category='header-login'> <span data-toggle="modal" data-target="#login-modal">登入</span></a></li>
 
-                <div class="button row">                
-                  <div class="col-md-6">
-                 
+              </ul>-->
 
-                 <!-- <button type="button" id="invite" class="button1" data-target="#myModal">Invite</button>-->
-                 <button type="button" class="button1" data-toggle="modal" data-target="#myModal">Invite</button>
-                    
-                    <div class="modal fade" id="myModal" role="dialog">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <p class="modal-title">XLanguage</p>
-                          </div>
-                          
-                          <div class="modal-body">
-                          	<div class="tab row">
-                                <div class="step col-md-3">
-                                    <p class="step_text"> STEP 01 <br>| 選定交換對象 </p>
-                                </div>
-                                <div class="step col-md-3">
-                                    <p class="step_text"> STEP 02 <br>| 挑個好日子 </p>
-                                </div>
-                                <div class="step col-md-3">
-                                    <p class="step_text"> STEP 03 <br>| 風水寶地 </p>
-                                </div>
-                                <div class="step2 col-md-3">
-                                    <p class="step_text"> STEP 04 <br>| 恭喜完成 </p>
-                                </div>
-                          	</div>
-                            
-                            <div class="main_inviter">
-                            	<img src="profile.jpg" id="inviter">
-                            	<p class="inviter_name">主要受訪者</p>
-                            </div>
-
-                            <div class="other_inviter">
-                            	<img src="plus.png" class="plus">
-                            	<img src="profile.jpg" class="other_inviterpic">
-                            	<img src="profile.jpg" class="other_inviterpic">
-                            	<img src="profile.jpg" class="other_inviterpic">
-                            	<img src="profile.jpg" class="other_inviterpic">
-                            	<img src="profile.jpg" class="other_inviterpic">
-                            	<p class="other_inviter_name"> 次要受訪者</p>
-                            </div>
-
-                          </div>
-                          
-                          <div class="modal-footer">
-                            
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Next Step</button>
-                          </div>
-                          
-                        </div>    
-                      </div>
-                    </div>
-
-
-                  </div>
-
-                  <div class="col-md-6">
-                  <button type="button" id="message" class="button1">Message</button>
-                  </div>
-
-                </div>
-
-                <div class="pro_left">
-
-                  <div class="follow">
-                    <a href="follow.html"id="followers"> FOLLOWERS </a>
-                    <a href="follow.html"id="followings"> FOLLOWINGS </a>
-                  </div>
-                </div>
-
-                <div class="addition">
-                    <img src="calendar.jpg" id="calendar">
-                </div>
-            </div>
-
-            <div class="col-md-9" id="profile_right">
-                 <div class="pro_right">
-                    <div class="personal_info">
-                      <div class="simple_info">
-                      <p>Name: </p>
-                      <p>Gender: </p>
-                      <p>How Old: </p>
-                      <p>Nation: </p>
-                      <p>School: </p>
-                      <p>Company: </p>
-                      <p>About Me: </p>
-                      </div>
-                    
-
-                    <div class="about_me">
-                    <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.
-                    <br>
-
-                    Nulla wisi laoreLorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.
-                    <br>
-                    Nulla wisi laoreet suspendisse hendrerit facilisi, mi mattis pariatur adipiscing aliquam pharetra eget. Aenean urna ipsum donec tellus tincidunt, quam curabitur metus, pretium purus facilisis enim id, integer eleifend vitae volutpat consequat per leo.Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.
-                    <br>
-                    Nulla wisi laoreet suspendisse hendrerit facilisi, mi mattis pariatur adipiscing aliquam pharetra eget. Aenean urna ipsum donec tellus tincidunt, quam curabitur metus, pretium purus facilisis enim id, integer eleifend vitae volutpat consequat per leo.Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.</p>
-                    </div>
-
-                    </div>
-
-                      
-                              
-                 </div>
+              <ul class="nav pull-right">
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Calender</a></li>
+                <li><a href="#">Logout</a></li>
+                </ul>
+                </li>
+              </ul>
 
             </div>
+          </div>
+         </div>
+        </nav>
 
+<div id="body">
+  <div class="profileInfo">
+      <div class="aboutBar">
+        <img src="profile.jpg" class="img-circle" width="140" height="140">
+        <a href="#profile">
+        <i class="fa fa-cog fa-2x"></i></a>
+        <p>Jones Fish </p>
+      </div>
+  </div>
+
+<div class="wrapper">
+  <ul class="tabs">
+    <li class="active"><a href="#profile"><br>Profile</a></li>
+    <li><a href="#calender"><br>Calender</a></li>
+    <li><a href="#follower"><span class="value" id="follower_count">0</span> <br><span class="label">Follower</span></a></li>
+    <li><a href="#following"><span class="value" id="following_count">0</span> <br><span class="label">Following</a></li>
+  </ul>
+  <div class="clr"></div>
+
+  <section class="block">
+
+    <article id="profile">
+      <div class="profile_info">
+        <p>LANGUAGE:<span class="label">French</span></p>
+        <p>LEVEL:<span class="label">5 STAR</span></p>
+        <p>INFO:<span class="label"></span></p>
+        <p>PREFER:<span class="label">Skype</span></p>
+      </div>
+
+      <div class="comment">
+        <div class="row">
+        <div class="people col-md-2">
+          <img src="profile.jpg" class="img-circle" width="75" height="75">
+          <p>※※※※※</p>
         </div>
 
-    </div>
+        <div class="comment_contents col-md-10">
+          <p>He is a very good xlanguager!! pretty recommend him!</p>
+        </div>
 
-  	<footer class="footer">
-  		<br>
-  		<a id="home_page">XLanguage</a>
-  		<br>
-  		<a id="about_us">About us</a>
-  	</footer>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="row">
+        <div class="people col-md-2">
+          <img src="profile.jpg" class="img-circle" width="75" height="75">
+          <p>※※</p>
+        </div>
+
+        <div class="comment_contents col-md-10">
+          <p>He is a very good xlanguager!! pretty recommend him!</p>
+        </div>
+
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="row">
+        <div class="people col-md-2">
+          <img src="profile.jpg" class="img-circle" width="75" height="75">
+          <p>※※※</p>
+        </div>
+
+        <div class="comment_contents col-md-10">
+          <p>He is a very good xlanguager!! pretty recommend him!</p>
+        </div>
+
+        </div>
+      </div>
+
+      <div class="comment_type">
+        <div class="rating">
+          <p>Rating:
+          <span>※※※※※</span></p>
+        </div>
+        <div class="comment_typecontents">
+          <input type="text" id="contents" placeholder="Type your comments !!">
+        </div>
+
+      </div>
+    </article>
+    
+    <article id="calender">
+      <div class="profile_calender">
+        <img src="calender.jpg" class="calender">
+        <p>Your Booked Time: <span class="label"> </span></p>
+        <span class="label"> 2014/05/01</span> <span class="label who"> Amy Hsu</span>
+        <span class="label place"> DA-REN Building.</span>
+      </div>
+    </article>
+    
+    <article id="follower">
+      <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+    </article>
+    
+    <article id="following">
+      <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+    </article>
+
+  </section>
+</div>
+  
 
 </div>
 </body>
-
-
 </html>

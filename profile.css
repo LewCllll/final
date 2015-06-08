@@ -1,185 +1,184 @@
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
-#profile_pic{
-	width:75%;
-	height:75%;
-	margin-left:15%;
-	margin-top: 20%;
-
+.aboutBar > img{
+  margin: auto;
+  display:block;
 }
 
-#Person_name {
-	font-size:25px;
-	font-family:serif;
-	margin-top: 8%;
-	margin-left: 15%;
-	border-bottom: solid;
-	border-width:2px;
+.aboutBar{
+  margin-top: 100px;
 }
 
-.button1{
-	width:80px;
-	height:30px;
-	border:3px;
-	background-color: white;
-	margin-top: 10%;
-	margin-left: 15%;
+.aboutBar > p{
+  text-align: center;
+  font-size: 50px;
+  font-family: cursive;
+  padding:20px 0px;
 }
 
-#profile_left{
-
+.aboutBar > a{
+  position:relative;
+  top:0px;
+  left:550px;
 }
 
-.pro_left{
-	background-color: black;
-	margin-left:3%;
-	margin-top: 8%;
-	height:75px;
-	width:225px;
+.tabs >ul >li{
+  list-style: none;
 }
 
-.follow{
-	padding-left:10px;
-	padding-top:5px;
+.label{
+  color:black;
 }
 
-#followers{
-	color:white;
-	padding-top:15px;
-	font-size:20px;
+.value{
+  color:black;
 }
-#followings{
-	color:white;
-	padding-top:15px;
-	font-size:20px;	
+/*
+.tabs >ul >li{
+  display:inline;
+  margin:30px 50px;
 }
 
-#blog{
-	padding-top:20px;
-	padding-left:10px;
-	color:white;
-	font-size:15px;
+.tabs{
+  width:100%;
 }
 
-.addition{
-	margin-top: 10px;
+*/
+
+ul.tabs {
+  list-style-type: none;
+  width:60%;
+  margin: auto;
+  padding: 0;
+}
+ul.tabs li {
+  border: none;
+  border-bottom: none;
+  float: left;
+  margin: 0 1em 0 1em;
+  padding: .25em .5em;
 }
 
-
-.pro_right{
-	height:950px;
-	margin-left: 5%;
-	margin-top: 8%;
-	border-color: black;
-	border-style:solid;
-	border-width:2px;
+ul.tabs li a {
+  color: gray;
+  font-weight: bold;
+  text-decoration: none;
+}
+ 
+ul.tabs li a span{
+  color: gray;
+  font-weight: bold;
+  text-decoration: none;
+  font-size:100%;
 }
 
-.follow_right{
-	font-size:15px;
-	font-family:cursive;
-	padding-left: 10px;
-	padding-top: 20px;
+ul.tabs li.active {
+  background: gray;
 }
 
-
-.modal-content{
-	height:550px;
-	width:700px;
-	background-color: white;
-	position:fixed;
-	margin-top:3%;
+ul.tabs li.active a {
+  color: white;
 }
 
-.modal-header{
-	height:15%;
-	width:100%;
-	background-color: black;
+ul.tabs li.active a span{
+  color: white;
 }
 
-.step{
-	background:rgba(0,0,0,0.5);
-	border-right-color: white;
-	border-right-width: 1px;
-	border-right-style: solid;
+.clr {
+  clear: both;
 }
 
-.step2{
-	background:rgba(0,0,0,0.5);	
-}
-.tab{
-	margin-left: 5px;
-	margin-top:2%;
-	margin-right:5px;
+article {
+  border-top: gray solid 1px;
+  padding: 0em 1em;
+  padding-top: 50px;
 }
 
-.step_text{
-	color:white;
+.tabs{
+  padding-bottom: 10px;
 }
 
-.modal-title{
-	color:white;
-	font-family: cursive;
-	margin-left: 10px;
-	font-size:35px;	
+#follower_count{
+  padding-left: 40px;
 }
 
-#inviter{
-	width:15%;
-	height:15%;
+#following_count{
+ padding-left: 40px;
 }
 
-.main_inviter{
-	margin-left:10%;
-	margin-top:5%;
+article > div{
+  margin:50px 0px;
+  padding:10px 10px;
+  width:70%;
+  margin:auto;
 }
 
-.plus{
-	width:50px;
-	height:50px;
-	margin-right: 30px;
+.profile_info{
+  border:black dotted 2px;
+  margin-bottom: 75px;
+  min-height: 300px;
 }
 
-.other_inviterpic{
-	width:10%;
-	height:10%;
-	margin-right: 20px;	
+.profile_info > p{
+  font-size:20px;
+  font-family: cursive;
 }
 
-.other_inviter{
-	margin-left:10%;
-	margin-top:5%;
+.profile_info > span{
+  font-size:15px;
 }
 
-.other_inviter_name{
-	margin-top: 3%;
+.profile_calender > img{
+  width:75%;
+  padding-left: 90px;
+  padding-bottom: 20px;
 }
 
-.inviter_name{
-	margin-top:3%;
+.profile_calender >p{
+  font-size:25px;
 }
 
-#calendar{
-	width:120%;
-	height:120%;
-	margin-top: 5%;
+.profile_calender > span{
+  font-size:25px;
 }
 
-.simple_info >p{
-	font-size:15px;
-	font-family:cursive;
+.who{
+  border-bottom: black solid 1px;
 }
 
-.personal_info{
-	margin-left:10%;
-	margin-top:5%;
+.place{
+  border-bottom: black solid 1px;
 }
 
-.about_me{
-	font-size:15px;
-	border-color: gray;
-	border-width: 1px;
-	border-style: solid;
-	margin-right:10px;
-	margin-top:10px;
+.comment{
+  padding-top: 10px 20px 10px 10px;
+  border:black solid 1px;
+  margin-bottom: 35px;
+}
+
+.people{
+  border-right:black solid 5px;
+}
+
+.comment_type{
+  padding-top: 10px 20px 10px 10px;
+  border:black solid 1px;
+  min-height: 150px;
+}
+
+.comment_typecontents{
+
+  font-size:30px;
+}
+
+.comment_typecontents >p {
+  margin-top:30px;
+}
+
+#contents{
+  margin: 15px 20px;
+  width:90%;
+  background-color: white;
+  font-size:25px;
+  height:60px;
 }
