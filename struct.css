@@ -78,3 +78,6 @@ body{
 	margin-top: 15px;
 }
 
+.caret{
+	z-index: 100;
+}
