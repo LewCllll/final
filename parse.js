@@ -52,7 +52,7 @@
   }
 
 
-  Parse.initialize("$B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "$wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+  Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
 
   window.fbAsyncInit = function() {
 
