@@ -15,6 +15,9 @@
       IfNotLoggedIn.style.display="inline-block";
       var Manage=document.getElementById("manage");
       Manage.style.display="inline-block";
+
+      var user_info = document.getElementById("profile_img");
+      user_info.style.display="block";
       testAPI();
       
     } else if (response.status === 'not_authorized') {
