@@ -123,6 +123,7 @@
             });
     }
   });
+  };
 
   $("#LogIn").click(function(){   
        // alert("click on login-btn"); 
@@ -213,7 +214,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-};
+}
 
 /*
   function getUserInfo() {
