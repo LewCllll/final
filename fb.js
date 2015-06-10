@@ -105,7 +105,8 @@
 
   $("#LogIn").click(function(){   
         alert("click on login-btn"); 
-        FB.login(function(response) {
+        
+       FB.login(function(response) {
             //console.log(response);
             if (response.status == "connected") {
 
@@ -122,7 +123,7 @@
               console.log('User cancelled login or did not fully authorize.');
             }
             testAPI();
-          }, {scope:'user_birthday,user_friends,user_photos,user_statusd'}); 
+          },
       });
 
   $("#LogOut").click(function(){
