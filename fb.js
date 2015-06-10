@@ -51,7 +51,20 @@
     });
   }
 
+
   window.fbAsyncInit = function() {
+
+  Parse.initialize("$B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "$wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+  
+  Parse.FacebookUtils.init({ // this line replaces FB.init({
+   appId : '836005236481666', // Facebook App ID
+   status : true, // check Facebook Login status
+   cookie : true, // enable cookies to allow Parse to access the session
+   xfbml : true, // initialize Facebook social plugins on the page
+   version : 'v2.3' // point to the latest Facebook Graph API version
+ });
+
+  /*
   FB.init({
     appId      : '836005236481666',
     cookie     : true,  // enable cookies to allow the server to access 
@@ -59,6 +72,8 @@
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.2' // use version 2.2
   });
+  */
+
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
@@ -72,11 +87,13 @@
   //
   // These three cases are handled in the callback function.
 
+
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
 
-    FB.Event.subscribe('auth.login', function(response) {
+
+  FB.Event.subscribe('auth.login', function(response) {
 
         if (response.status=="connected"){ // if logged in
             var IfLoggedInDiv=document.getElementById("LogOut");
@@ -92,9 +109,9 @@
             userid=response.authResponse.userID;
             console.log('userid: '+userid);
         }
-    });
+  });
             
-    FB.Event.subscribe('auth.logout', function(response) {
+  FB.Event.subscribe('auth.logout', function(response) {
         if (response.status!="connected"){ // if logged out
             var IfLoggedInDiv=document.getElementById("LogOut");
             IfLoggedInDiv.style.display="none";
@@ -103,13 +120,13 @@
             FB.logout(function(response){
                 location.reload();  // refresh
             });
-        }
+    }
   });
 
   $("#LogIn").click(function(){   
        // alert("click on login-btn"); 
         
-        FB.login(function(response) {
+       /* FB.login(function(response) {
             //console.log(response);
             if (response.status == "connected") {
 
@@ -126,8 +143,28 @@
               console.log('User cancelled login or did not fully authorize.');
             }
             testAPI();
-          }); 
-      });
+          });*/
+          Parse.FacebookUtils.logIn(function(response) {
+   //console.log(response);
+            if (response.status == "connected") {
+
+              var IfLoggedIn=document.getElementById("LogIn");
+              IfLoggedIn.style.display="none";
+              var IfNotLoggedIn=document.getElementById("LogOut");
+              IfNotLoggedIn.style.display="inline-block";
+
+            } else {
+              var IfLoggedIn=document.getElementById("LogIn");
+              IfLoggedIn.style.display="inline-block";
+              var IfNotLoggedIn=document.getElementById("LogOut");
+              IfNotLoggedIn.style.display="none";
+              console.log('User cancelled login or did not fully authorize.');
+            }
+            testAPI();
+          });
+
+
+    });
 
   $("#LogOut").click(function(){
       //  alert('You are logging out. Bye!');
@@ -143,13 +180,7 @@
 
 
   // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
@@ -170,6 +201,15 @@
 
     });
   }
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
 
 
 /*
