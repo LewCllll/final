@@ -104,7 +104,7 @@
   });
 
   $("#LogIn").click(function(){   
-        //alert("click on login-btn"); 
+        alert("click on login-btn"); 
         FB.login(function(response) {
             //console.log(response);
             if (response.status == "connected") {
@@ -126,7 +126,7 @@
       });
 
   $("#LogOut").click(function(){
-        //alert('You are logging out. Bye!');
+        alert('You are logging out. Bye!');
         var IfLoggedIn=document.getElementById("LogIn");
         IfLoggedIn.style.display="inline-block";
         var IfNotLoggedIn=document.getElementById("LogOut");
