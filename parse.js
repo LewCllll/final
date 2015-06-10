@@ -1,13 +1,13 @@
-
-// This is called with the results from from FB.getLoginStatus().
-function statusChangeCallback(response) {
+  // This is called with the results from from FB.getLoginStatus().
+  
+  function statusChangeCallback(response) {
   console.log('statusChangeCallback');
   console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
-    if (response.status === 'connected') {
+  if (response.status === 'connected') {
       // Logged into your app and Facebook.
       var IfLoggedIn=document.getElementById("LogIn");
       IfLoggedIn.style.display="none";
@@ -15,6 +15,9 @@ function statusChangeCallback(response) {
       IfNotLoggedIn.style.display="inline-block";
       var Manage=document.getElementById("manage");
       Manage.style.display="inline-block";
+      /*
+      var user_info = document.getElementById("profile_img");
+      user_info.style.display="block";*/
       testAPI();
       
     } else if (response.status === 'not_authorized') {
@@ -38,6 +41,7 @@ function statusChangeCallback(response) {
     }
   }
 
+
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
@@ -47,14 +51,29 @@ function statusChangeCallback(response) {
     });
   }
 
+
+  Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+
   window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1038073482885028',
+
+  Parse.FacebookUtils.init({ // this line replaces FB.init({
+     appId : '836005236481666', // Facebook App ID
+     status : true, // check Facebook Login status
+     cookie : true, // enable cookies to allow Parse to access the session
+     xfbml : true, // initialize Facebook social plugins on the page
+     version : 'v2.3' // point to the latest Facebook Graph API ve
+   });
+
+/*
+  FB.init({
+    appId      : '836005236481666',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1' // use version 2.1
+    version    : 'v2.2' // use version 2.2
   });
+  */
+
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
@@ -68,11 +87,13 @@ function statusChangeCallback(response) {
   //
   // These three cases are handled in the callback function.
 
+
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
-  // define the events when login status changed.
-    FB.Event.subscribe('auth.login', function(response) {
+
+
+  FB.Event.subscribe('auth.login', function(response) {
 
         if (response.status=="connected"){ // if logged in
             var IfLoggedInDiv=document.getElementById("LogOut");
@@ -88,9 +109,9 @@ function statusChangeCallback(response) {
             userid=response.authResponse.userID;
             console.log('userid: '+userid);
         }
-    });
+  });
             
-    FB.Event.subscribe('auth.logout', function(response) {
+  FB.Event.subscribe('auth.logout', function(response) {
         if (response.status!="connected"){ // if logged out
             var IfLoggedInDiv=document.getElementById("LogOut");
             IfLoggedInDiv.style.display="none";
@@ -99,13 +120,15 @@ function statusChangeCallback(response) {
             FB.logout(function(response){
                 location.reload();  // refresh
             });
-        }
-    });
+    }
+  });
+
   $("#LogIn").click(function(){   
-        //alert("click on login-btn"); 
-        FB.login(function(response) {
+       // alert("click on login-btn"); 
+       
+      //FB.login(function(response) {
             //console.log(response);
-            if (response.status == "connected") {
+      /*      if (response.status == "connected") {
 
               var IfLoggedIn=document.getElementById("LogIn");
               IfLoggedIn.style.display="none";
@@ -120,11 +143,31 @@ function statusChangeCallback(response) {
               console.log('User cancelled login or did not fully authorize.');
             }
             testAPI();
-          }, {scope:'user_birthday,user_friends,user_photos,user_status,friends_status,friends_checkins,friends_photos,read_stream,export_stream'}); 
+          });*/
+      Parse.FacebookUtils.logIn(null, {
+           success: function(user) {
+           if (!user.existed()) {
+           alert("User signed up and logged in through Facebook!");
+           } else {
+           alert("User logged in through Facebook!");
+           }
+           indexView(); //這是預先寫好的控制版⾯的function，⾮臉書api
+           FB.getLoginStatus(function(response) {
+           if (response.status === 'connected') {
+           //等等要在這邊加程式碼 使⽤FB.api()
+           }
+           });
+           },
+           error: function(user, error) {
+           alert("User cancelled the Facebook login or did not fully authorize.");
+           }
       });
 
+
+    });
+
   $("#LogOut").click(function(){
-        //alert('You are logging out. Bye!');
+      //  alert('You are logging out. Bye!');
         var IfLoggedIn=document.getElementById("LogIn");
         IfLoggedIn.style.display="inline-block";
         var IfNotLoggedIn=document.getElementById("LogOut");
@@ -133,17 +176,20 @@ function statusChangeCallback(response) {
             location.reload();  // refresh
           });
       });
+  
   };
-
-
-  // Load the SDK asynchronously
+  
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/zh_TW/sdk.js";
+    js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+
+
+  // Load the SDK asynchronously
+
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
@@ -153,8 +199,15 @@ function statusChangeCallback(response) {
       console.log('Successful login for: ' + response.name+response.id);
       //document.getElementById('status').innerHTML =
       //'Welcome, ' + response.name + '!';
-var Manage=document.getElementById("manage");
+    var Manage=document.getElementById("manage");
       //Manage.style.display="none";
       Manage.innerHTML='<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
+    
+    /*
+    var user_info = document.getElementById("profile_img");
+      user_info.innerHTML = '<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
+
+      console.log( 'url is' + user_info);
+    */
     });
   }
