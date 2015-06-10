@@ -179,7 +179,7 @@
             location.reload();  // refresh
           });
       });
-  };
+  
 
 
   // Load the SDK asynchronously
@@ -213,7 +213,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-
+};
 
 /*
   function getUserInfo() {
