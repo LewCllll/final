@@ -122,7 +122,7 @@
               console.log('User cancelled login or did not fully authorize.');
             }
             testAPI();
-          }, {scope:'user_birthday,user_friends,user_photos,user_status,friends_status,friends_checkins,friends_photos,read_stream,export_stream'}); 
+          }, {scope:'user_birthday,user_friends,user_photos,user_statusd'}); 
       });
 
   $("#LogOut").click(function(){
