@@ -183,7 +183,8 @@ article > div{
   height:60px;
 }
 
-#profile_img{
+
+#profileimg > .img-rounded{
   width:140px;
   height:140px;
   border-radius: 70px;
