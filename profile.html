@@ -14,13 +14,14 @@
   <link rel="stylesheet" type="text/css" href="profile.css">
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="tab.js"></script>
+  <script src="fb.js"></script>
 
 </head>
 
 
 <body>
-
-    <nav class="navbar navbar-default navbar-static-top">
+    <div id="fb-root"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
             <div class="navbar-header">
@@ -95,7 +96,7 @@
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Calender</a></li>
+                <li><a href="#">calendar</a></li>
                 <li><a href="#">Logout</a></li>
                 </ul>
                 </li>
@@ -119,7 +120,7 @@
 <div class="wrapper">
   <ul class="tabs">
     <li class="active"><a href="#profile"><br>Profile</a></li>
-    <li><a href="#calender"><br>Calender</a></li>
+    <li><a href="#calendar"><br>calendar</a></li>
     <li><a href="#follower"><span class="value" id="follower_count">0</span> <br><span class="label">Follower</span></a></li>
     <li><a href="#following"><span class="value" id="following_count">0</span> <br><span class="label">Following</a></li>
   </ul>
@@ -142,7 +143,7 @@
           <p>※※※※※</p>
         </div>
 
-        <div class="comment_contents col-md-10">
+        <div class="comment_contents col-md-10">f
           <p>He is a very good xlanguager!! pretty recommend him!</p>
         </div>
 
@@ -189,9 +190,9 @@
       </div>
     </article>
     
-    <article id="calender">
-      <div class="profile_calender">
-        <img src="calender.jpg" class="calender">
+    <article id="calendar">
+      <div class="profile_calendar">
+        <img src="calendar.jpg" class="calendar">
         <p>Your Booked Time: <span class="label"> </span></p>
         <span class="label"> 2014/05/01</span> <span class="label who"> Amy Hsu</span>
         <span class="label place"> DA-REN Building.</span>

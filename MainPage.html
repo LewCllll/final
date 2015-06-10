@@ -12,12 +12,13 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="struct.css">
   <link rel="stylesheet" type="text/css" href="mainpage.css">
+  <script src="fb.js"></script>
 </head>
 
 
 <body>
-
-   	<nav class="navbar navbar-default navbar-static-top">
+    <div id="fb-root"></div>
+   	<nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
             <div class="navbar-header">
@@ -83,7 +84,12 @@
               </ul>
 
               <ul class="nav pull-right">
-              	 <li><a> <span data-toggle="modal" data-target="#regist-modal">註冊</span></a></li>
+              <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+              </fb:login-button>
+
+              <!--<li><a> <span data-toggle="modal" data-target="#regist-modal">註冊</span></a></li>-->
+              <li><fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+              註冊</fb:login-button></li>
                  <li><a class="separator"> <span>|</span></a></li>
                  <li><a href="#" data-ga-category='header-login'> <span data-toggle="modal" data-target="#login-modal">登入</span></a></li>
 

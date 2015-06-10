@@ -1,0 +1,46 @@
+.country{
+  position:fixed;
+}
+
+.lanCheck{
+  font-size:14px;
+}
+
+.profile{
+  margin:1em auto;
+}
+
+#followPic, #countryPic{
+  position: absolute;
+}
+
+#followPic{
+  width:100%;
+  height:auto;
+}
+
+#countryPic{
+  width:30%;
+  height:auto;
+  margin:120px 10px 0px 150px
+}
+
+.profileInfo{
+  margin-top:180px;
+}
+
+.name{
+  text-align:center;
+}
+
+.description{
+  font-size:14px;
+}
+
+.rating{
+  float:left;
+}
+
+.followers{
+  float:right
+}

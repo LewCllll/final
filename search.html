@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XLanguage</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="struct.css">
+  <link rel="stylesheet" type="text/css" href="search.css">
+  <script src="fb.js"></script>
+</head>
+
+
+<body>
+    <div id="fb-root"></div>
+   	<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <div class="navbar-header">
+	              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	              </button>
+
+              <a class="brand" href="#">
+              <img src="logo.png" id="logo"></a>
+            </div>
+
+
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">About Us</a></li>
+
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> XLanguager<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                	
+                	<div class="display_inline">
+                	<ul>
+                	<li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                	<li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                	<li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                	</ul>
+                	</div>
+                	
+                	<div class="display_inline">
+                	<ul>
+                	<li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                	<li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                	<li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                	</ul>
+                	</div>
+
+                	<div class="display_inline">
+                	<ul>
+                	<li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                	<li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                	<li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                	</ul>
+                	</div>
+
+
+
+                </ul>
+                </li>
+
+                <li>
+                <form class="navbar-form" role="search">
+		           <div class="form-group">
+		              <input type="text" class="form-control" placeholder="Search">
+		           </div>
+
+		           <a class="fa fa-search" href="#" ></a>
+		        </form>
+                </li>
+              </ul>
+
+              <ul class="nav pull-right">
+              	 <li><a> <span data-toggle="modal" data-target="#regist-modal">註冊</span></a></li>
+                 <li><a class="separator"> <span>|</span></a></li>
+                 <li><a href="#" data-ga-category='header-login'> <span data-toggle="modal" data-target="#login-modal">登入</span></a></li>
+
+              </ul>
+            </div>
+
+
+          </div>
+         </div>
+        </nav>
+
+<div id="body">
+  
+  <div class="country col-xs-3 col-sm-3 col-md-3">
+          
+        <h3 class="title" id="Lan">Languages</h3>
+        
+        <div>   
+          <input type="checkbox" name="language" id="eng"> 
+          <label for="eng" class="lanCheck">English</label>
+        </div>
+      
+        <div>     
+          <input type="checkbox" name="language" id="spn">    
+          <label for="spn" class="lanCheck">Spanish</label> 
+        </div>
+      
+        <div>      
+          <input type="checkbox" name="language" id="jpn">    
+          <label for="jpn" class="lanCheck">Japanese</label>
+        </div>
+      
+        <div>  
+          <input type="checkbox" name="language" id="man">    
+          <label for="man" class="lanCheck">Mandarin Chinese</label>  
+        </div>
+    
+        <div>  
+          <input type="checkbox" name="language" id="ctn">    
+          <label for="ctn" class="lanCheck">Cantonese</label> 
+        </div>
+      
+        <div>       
+          <input type="checkbox" name="language" id="fra">   
+          <label for="fra" class="lanCheck">French</label>    
+        </div>
+      
+        <div>     
+          <input type="checkbox" name="language" id="por">    
+          <label for="por" class="lanCheck">Portuguese</label>  
+        </div>
+      
+        <div>  
+          <input type="checkbox" name="language" id="min">    
+          <label for="min" class="lanCheck">Taiwanese (Min Chinese)</label>
+        </div>
+  
+  </div><!-- /.country -->
+  
+  <div class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3"
+  <div class="col-xs-9 col-sm-9 col-md-9">
+  
+  <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+    
+    <div class="profile col-xs-4 col-sm-4 col-md-4">
+    <div style="position:relative">
+      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
+      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+    </div>
+    <div class="profileInfo">
+      <div class="name">Name</div>          
+      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
+      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
+      <span class="followers">Follower: <span id="followNum">1</span></span>
+    </div>
+    
+  </div><!-- /.profile -->
+   
+    
+  </div>
+  
+  
+  
+</body>
+</html>
