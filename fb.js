@@ -123,7 +123,6 @@
             });
     }
   });
-  };
 
   $("#LogIn").click(function(){   
        // alert("click on login-btn"); 
@@ -146,28 +145,6 @@
             }
             testAPI();
           });
-
-  /*
-          Parse.FacebookUtils.logIn(function(response) {
-   //console.log(response);
-            if (response.status == "connected") {
-
-              var IfLoggedIn=document.getElementById("LogIn");
-              IfLoggedIn.style.display="none";
-              var IfNotLoggedIn=document.getElementById("LogOut");
-              IfNotLoggedIn.style.display="inline-block";
-
-            } else {
-              var IfLoggedIn=document.getElementById("LogIn");
-              IfLoggedIn.style.display="inline-block";
-              var IfNotLoggedIn=document.getElementById("LogOut");
-              IfNotLoggedIn.style.display="none";
-              console.log('User cancelled login or did not fully authorize.');
-            }
-            testAPI();
-          });
-*/
-
     });
 
   $("#LogOut").click(function(){
@@ -180,6 +157,8 @@
             location.reload();  // refresh
           });
       });
+  
+  };
   
 
 
@@ -214,7 +193,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-}
+
 
 /*
   function getUserInfo() {
