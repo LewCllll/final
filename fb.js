@@ -164,7 +164,7 @@
       Manage.innerHTML='<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
     
     var user_info = document.getElementById("profile_img");
-      user_info = '<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
+      user_info.innerHTML = '<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
 
       console.log( 'url is' + user_info);
 
