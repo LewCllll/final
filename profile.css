@@ -182,3 +182,15 @@ article > div{
   font-size:25px;
   height:60px;
 }
+
+#profile_img{
+  width:140px;
+  height:140px;
+  border-radius: 70px;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  position: relative;
+  left:-100px;
+
+
+}
