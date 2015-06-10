@@ -54,6 +54,7 @@
 
   window.fbAsyncInit = function() {
 
+/*
   Parse.initialize("$B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "$wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
   
   Parse.FacebookUtils.init({ // this line replaces FB.init({
@@ -63,8 +64,8 @@
    xfbml : true, // initialize Facebook social plugins on the page
    version : 'v2.3' // point to the latest Facebook Graph API version
  });
-
-  /*
+*/
+  
   FB.init({
     appId      : '836005236481666',
     cookie     : true,  // enable cookies to allow the server to access 
@@ -72,7 +73,7 @@
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.2' // use version 2.2
   });
-  */
+  
 
 
   // Now that we've initialized the JavaScript SDK, we call 
@@ -126,7 +127,7 @@
   $("#LogIn").click(function(){   
        // alert("click on login-btn"); 
         
-       /* FB.login(function(response) {
+        FB.login(function(response) {
             //console.log(response);
             if (response.status == "connected") {
 
@@ -143,7 +144,9 @@
               console.log('User cancelled login or did not fully authorize.');
             }
             testAPI();
-          });*/
+          });
+
+  /*
           Parse.FacebookUtils.logIn(function(response) {
    //console.log(response);
             if (response.status == "connected") {
@@ -162,7 +165,7 @@
             }
             testAPI();
           });
-
+*/
 
     });
 

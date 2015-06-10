@@ -26,7 +26,12 @@ Parse.initialize("$B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "$wMLWm7nzcaQKpgIv
 	 } else {
 	 alert("User logged in through Facebook!");
 	 }
-	 //等等要在這邊加程式碼 FB.getLoginStatus
+	 indexView(); //這是預先寫好的控制版⾯的function，⾮臉書api
+ 	FB.getLoginStatus(function(response) {
+ 	if (response.status === 'connected') {
+ 		//等等要在這邊加程式碼 使⽤FB.api()
+ 	}
+ });
 	 },
 	 error: function(user, error) {
 	 alert("User cancelled the Facebook login or did not fully authorize.");
