@@ -162,7 +162,7 @@
   }
 
 
-
+/*
   function getUserInfo() {
         FB.api('/me', function(response) {
  
@@ -192,3 +192,4 @@
     {
         FB.logout(function(){document.location.reload();});
     }
+*/
