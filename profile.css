@@ -191,5 +191,6 @@ article > div{
   -webkit-border-radius: 70px;
   -moz-border-radius: 70px;
   position: relative;
-  left:250px;
+  left:400px;
+  height:-50px;
 }
