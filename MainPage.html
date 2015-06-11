@@ -32,38 +32,36 @@
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
 
-          FB.getLoginStatus(function(response) {
+        FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
-          });
+        });
 
         FB.Event.subscribe('auth.login', function(response) {
+          if (response.status=="connected"){ // if logged in
+              var IfLoggedInDiv=document.getElementById("LogOut");
+              IfLoggedInDiv.style.display="inline-block";
+              var IfNotLoggedInDiv=document.getElementById("LogIn");
+              IfNotLoggedInDiv.style.display="none";
 
-        if (response.status=="connected"){ // if logged in
-            var IfLoggedInDiv=document.getElementById("LogOut");
-            IfLoggedInDiv.style.display="inline-block";
-            var IfNotLoggedInDiv=document.getElementById("LogIn");
-            IfNotLoggedInDiv.style.display="none";
+              // get access token
+              ACCESS_TOKEN=response.authResponse.accessToken;
+              //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
 
-            // get access token
-            ACCESS_TOKEN=response.authResponse.accessToken;
-            //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
-
-            // get user id
-            userid=response.authResponse.userID;
-            console.log('userid: '+userid);
-              }
+              // get user id
+              userid=response.authResponse.userID;
+              console.log('userid: '+userid);
+          }
         });
             
         FB.Event.subscribe('auth.logout', function(response) {
-        if (response.status!="connected"){ // if logged out
-            var IfLoggedInDiv=document.getElementById("LogOut");
-            IfLoggedInDiv.style.display="none";
-            var IfNotLoggedInDiv=document.getElementById("LogIn");
-            IfNotLoggedInDiv.style.display="inline-block";
-            FB.logout(function(response){
-                location.reload();  // refresh
-          });
-        
+          if (response.status!="connected"){ // if logged out
+              var IfLoggedInDiv=document.getElementById("LogOut");
+              IfLoggedInDiv.style.display="none";
+              var IfNotLoggedInDiv=document.getElementById("LogIn");
+              IfNotLoggedInDiv.style.display="inline-block";
+              FB.logout(function(response){
+                  location.reload();  // refresh
+            });
           }
         });
           // Run code after the Facebook SDK is loaded.
@@ -191,14 +189,8 @@
         FB.api('/me/picture', function (response) {
         $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
         });
-        
-        /*
-        var user_info = document.getElementById("profile_img");
-          user_info.innerHTML = '<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
-
-          console.log( 'url is' + user_info);
-        */
       }
+
     </script>
 
    	<nav class="navbar navbar-default navbar-fixed-top">
