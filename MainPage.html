@@ -62,7 +62,7 @@
                       var IfNotLoggedIn=document.getElementById("LogOut");
                       IfNotLoggedIn.style.display="inline-block";
                       
-                      FB.api('/me/picture?type=large', function (response) {
+                      FB.api('/me/picture', function (response) {
                       $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
                        });
 
