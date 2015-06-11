@@ -200,7 +200,7 @@
 
         FB.api('/me', function (response) {
                console.log(response);
-                $('#profile_name').append("<h1>"response['first_name']+ response['last_name'] "</h1>");
+        $('#profile_name').append(response['first_name']+ response['last_name']);
         });
 
       }
