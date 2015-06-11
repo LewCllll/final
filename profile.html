@@ -115,6 +115,16 @@
                       $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
                        });
 
+                       FB.api('/me/picture?type=large', function (response) {
+                      $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
+                      });
+
+                      FB.api('/me', function (response) {
+                      console.log(response);
+                      $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+                      });
+
+
                       var Manage=document.getElementById("manage");
                       Manage.style.display="inline-block";
                       console.log('picture display now');
@@ -200,7 +210,7 @@
 
         FB.api('/me', function (response) {
                console.log(response);
-        $('#profile_name').append(response['first_name']+ response['last_name']);
+        $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
         });
 
       }
