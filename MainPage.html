@@ -185,6 +185,25 @@
          location.reload();
       }
 
+      function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Successful login for: ' + response.name+response.id);
+          //document.getElementById('status').innerHTML =
+          //'Welcome, ' + response.name + '!';
+        var Manage=document.getElementById("manage");
+          //Manage.style.display="none";
+        Manage.innerHTML='<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
+        
+        /*
+        var user_info = document.getElementById("profile_img");
+          user_info.innerHTML = '<img class="img-rounded" src="http://graph.facebook.com/'+response.id+'/picture"/>';
+
+          console.log( 'url is' + user_info);
+        */
+        });
+      }
+
 
 
 
