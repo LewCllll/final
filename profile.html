@@ -23,6 +23,7 @@
     <div id="fb-root"></div>
     <script>
       Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+       
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
@@ -32,38 +33,36 @@
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
 
-          FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-          });
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
 
         FB.Event.subscribe('auth.login', function(response) {
+            if (response.status=="connected"){ // if logged in
+                var IfLoggedInDiv=document.getElementById("LogOut");
+                IfLoggedInDiv.style.display="inline-block";
+                var IfNotLoggedInDiv=document.getElementById("LogIn");
+                IfNotLoggedInDiv.style.display="none";
 
-        if (response.status=="connected"){ // if logged in
-            var IfLoggedInDiv=document.getElementById("LogOut");
-            IfLoggedInDiv.style.display="inline-block";
-            var IfNotLoggedInDiv=document.getElementById("LogIn");
-            IfNotLoggedInDiv.style.display="none";
+                // get access token
+                ACCESS_TOKEN=response.authResponse.accessToken;
+                //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
 
-            // get access token
-            ACCESS_TOKEN=response.authResponse.accessToken;
-            //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
-
-            // get user id
-            userid=response.authResponse.userID;
-            console.log('userid: '+userid);
-              }
+                // get user id
+                userid=response.authResponse.userID;
+                console.log('userid: '+userid);
+            }
         });
             
         FB.Event.subscribe('auth.logout', function(response) {
-        if (response.status!="connected"){ // if logged out
-            var IfLoggedInDiv=document.getElementById("LogOut");
-            IfLoggedInDiv.style.display="none";
-            var IfNotLoggedInDiv=document.getElementById("LogIn");
-            IfNotLoggedInDiv.style.display="inline-block";
-            FB.logout(function(response){
-                location.reload();  // refresh
-          });
-        
+          if (response.status!="connected"){ // if logged out
+              var IfLoggedInDiv=document.getElementById("LogOut");
+              IfLoggedInDiv.style.display="none";
+              var IfNotLoggedInDiv=document.getElementById("LogIn");
+              IfNotLoggedInDiv.style.display="inline-block";
+              FB.logout(function(response){
+                  location.reload();  // refresh
+              });
           }
         });
           // Run code after the Facebook SDK is loaded.
@@ -196,10 +195,9 @@
         FB.api('/me/picture?type=large', function (response) {
         $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
         });
-
-        console.log( 'url is' + user_info);
       }
     </script>
+
 
 
     <nav class="navbar navbar-default navbar-fixed-top">
