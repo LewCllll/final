@@ -63,7 +63,7 @@
                       IfNotLoggedIn.style.display="inline-block";
                       
                       FB.api('/me/picture?type=large', function (response) {
-                      $('#manage').html("<h5>Here are your profile photo</h5><img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+                      $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
                        });
 
                       var Manage=document.getElementById("manage");
