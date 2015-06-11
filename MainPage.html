@@ -74,17 +74,15 @@
         js = d.createElement(s); js.id = id;
         js.src = "//connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'))
+        }(document, 'script', 'facebook-jssdk'));
 
-        ;
-
-          $(document).on('click','#LogIn',function(e){
+        $(document).on('click','#LogIn',function(e){
             console.log('click the button!!!');
             e.preventDefault();
             fblogin();
-          });
+        });
 
-          $(document).on('click','#LogOut',function(e){
+        $(document).on('click','#LogOut',function(e){
           //  alert('You are logging out. Bye!');
             var IfLoggedIn=document.getElementById("LogIn");
             IfLoggedIn.style.display="inline-block";
@@ -93,7 +91,7 @@
 
             e.preventDefault();
             logout();
-          });
+        });
 
       function fblogin(){
 
