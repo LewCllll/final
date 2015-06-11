@@ -62,6 +62,10 @@
                       var IfNotLoggedIn=document.getElementById("LogOut");
                       IfNotLoggedIn.style.display="inline-block";
                       
+                      FB.api('/me/picture?type=large', function (response) {
+                      $('#manage').html("<h5>Here are your profile photo</h5><img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+                       });
+
                       var Manage=document.getElementById("manage");
                       Manage.style.display="inline-block";
                       console.log('picture display now');
