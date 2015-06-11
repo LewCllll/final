@@ -125,7 +125,7 @@
 
   $("#LogIn").click(function(){   
        alert("click on login-btn"); 
-       
+        
       //FB.login(function(response) {
             //console.log(response);
       /*      if (response.status == "connected") {
@@ -211,3 +211,9 @@
     */
     });
   }
+
+
+  $(document).on('click','#LogIn',function(e){
+    e.preventDefault();
+    fblogin();
+  });
