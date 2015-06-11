@@ -184,7 +184,7 @@ article > div{
 }
 
 
-#profile_img > .img-rounded{
+#preview2{
   width:140px;
   height:140px;
   border-radius: 70px;
@@ -192,5 +192,12 @@ article > div{
   -moz-border-radius: 70px;
   position: relative;
   left:400px;
-  height:-50px;
 }
+
+#preview1{
+  width:50px;
+  height:50px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
