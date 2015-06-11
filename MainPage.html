@@ -30,6 +30,37 @@
            xfbml      : true,  // initialize Facebook social plugins on the page
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
+
+        FB.Event.subscribe('auth.login', function(response) {
+
+        if (response.status=="connected"){ // if logged in
+            var IfLoggedInDiv=document.getElementById("LogOut");
+            IfLoggedInDiv.style.display="inline-block";
+            var IfNotLoggedInDiv=document.getElementById("LogIn");
+            IfNotLoggedInDiv.style.display="none";
+
+            // get access token
+            ACCESS_TOKEN=response.authResponse.accessToken;
+            //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
+
+            // get user id
+            userid=response.authResponse.userID;
+            console.log('userid: '+userid);
+              }
+        });
+            
+        FB.Event.subscribe('auth.logout', function(response) {
+        if (response.status!="connected"){ // if logged out
+            var IfLoggedInDiv=document.getElementById("LogOut");
+            IfLoggedInDiv.style.display="none";
+            var IfNotLoggedInDiv=document.getElementById("LogIn");
+            IfNotLoggedInDiv.style.display="inline-block";
+            FB.logout(function(response){
+                location.reload();  // refresh
+                });
+        
+          }
+        });
           // Run code after the Facebook SDK is loaded.
         };
 
@@ -142,10 +173,18 @@
 
         e.preventDefault();
         logout();
-       // FB.logout(function(response){
-            location.reload();  // refresh
-       //   });
       });
+
+
+      function logout(){
+         Parse.User.logOut();
+         FB.logout(function(response) {
+           console.log('logging out bye');
+         });
+         location.reload();
+      }
+
+
 
 
 
