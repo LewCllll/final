@@ -53,26 +53,28 @@
               alert("透過臉書登入成功");
             }
           //切換至預先寫好登入後的介面
-          FB.getLoginStatus(function(response) {
-              if (response.status == "connected") {
+              FB.getLoginStatus(function(response) {
+                  if (response.status == "connected") {
 
-                  var IfLoggedIn=document.getElementById("LogIn");
-                  IfLoggedIn.style.display="none";
-                  var IfNotLoggedIn=document.getElementById("LogOut");
-                  IfNotLoggedIn.style.display="inline-block";
+                      var IfLoggedIn=document.getElementById("LogIn");
+                      IfLoggedIn.style.display="none";
+                      var IfNotLoggedIn=document.getElementById("LogOut");
+                      IfNotLoggedIn.style.display="inline-block";
+                      var Manage=document.getElementById("manage");
+                      Manage.style.display="inline-block";
 
-                } else {
-                  var IfLoggedIn=document.getElementById("LogIn");
-                  IfLoggedIn.style.display="inline-block";
-                  var IfNotLoggedIn=document.getElementById("LogOut");
-                  IfNotLoggedIn.style.display="none";
-                  console.log('User cancelled login or did not fully authorize.');
-                }
-           }); 
-          },
-          error: function(user, error) {
-            alert("使用者取消登入或沒有授權");
-          }
+                    } else {
+                      var IfLoggedIn=document.getElementById("LogIn");
+                      IfLoggedIn.style.display="inline-block";
+                      var IfNotLoggedIn=document.getElementById("LogOut");
+                      IfNotLoggedIn.style.display="none";
+                      console.log('User cancelled login or did not fully authorize.');
+                    }
+               }); 
+              },
+              error: function(user, error) {
+                alert("使用者取消登入或沒有授權");
+              }
         });
       }
 
