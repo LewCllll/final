@@ -54,6 +54,7 @@
 
   Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
 
+
   window.fbAsyncInit = function() {
 
   Parse.FacebookUtils.init({ // this line replaces FB.init({
