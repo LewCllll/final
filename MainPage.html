@@ -31,6 +31,10 @@
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
 
+          FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+          });
+
         FB.Event.subscribe('auth.login', function(response) {
 
         if (response.status=="connected"){ // if logged in
@@ -57,7 +61,7 @@
             IfNotLoggedInDiv.style.display="inline-block";
             FB.logout(function(response){
                 location.reload();  // refresh
-                });
+          });
         
           }
         });
