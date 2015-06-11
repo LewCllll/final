@@ -54,21 +54,18 @@
             }
           //切換至預先寫好登入後的介面
           FB.getLoginStatus(function(response) {
-               if (response.status === 'connected') {
-                    var IfLoggedIn=document.getElementById("LogIn");
-                    IfLoggedIn.style.display="none";
-                    var IfNotLoggedIn=document.getElementById("LogOut");
-                    IfNotLoggedIn.style.display="inline-block";          
-               }
-               
-               else {
-                var IfLoggedIn=document.getElementById("LogIn");
-                IfLoggedIn.style.display="inline-block";
-                var IfNotLoggedIn=document.getElementById("LogOut");
-                IfNotLoggedIn.style.display="none";
-                console.log('User cancelled login or did not fully authorize.');
-                }
-             }); 
+             if (response.status === 'connected') {
+                 FB.api('/me/picture?type=large', function (response) {
+                $('#fbImgView').html("<h5>Here are your profile photo</h5><img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+                 });
+             
+                 FB.api('/me', function (response) {
+               console.log(response);
+               $('#fbImgView').append("<h1>Welcome , "+(response['gender']=="male"?"Mr. ":"Miss ")+" "+response['first_name']+"</h1>");
+                 });
+            
+             }
+           }); 
           },
           error: function(user, error) {
             alert("使用者取消登入或沒有授權");
