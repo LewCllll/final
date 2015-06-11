@@ -14,7 +14,6 @@
   <link rel="stylesheet" type="text/css" href="profile.css">
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="tab.js"></script>
-  <script src="fb.js"></script>
 
 </head>
 
@@ -154,6 +153,9 @@
                 
                 var user_info = document.getElementById("profile_img");
                 user_info.style.display="block";
+
+                var user_name = document.getElementById("profile_name");
+                user_name.style.display="block";
                 testAPI();
                 
               } else if (response.status === 'not_authorized') {
@@ -195,6 +197,12 @@
         FB.api('/me/picture?type=large', function (response) {
         $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
         });
+
+        FB.api('/me', function (response) {
+               console.log(response);
+        $('#profile_name').append("<h1>Welcome , "+(response['gender']=="male"?"Mr. ":"Miss ")+" "+response['first_name']+"</h1>");
+        });
+
       }
     </script>
 
@@ -300,7 +308,7 @@
         <div href="#" id="profile_img" class="profileimg" ></div>
         <a href="#profile">
         <i class="fa fa-cog fa-2x"></i></a>
-        <p>Jones Fish </p>
+        <div id="profile_name"></div>
       </div>
   </div>
 
