@@ -50,12 +50,6 @@
 
                 // get user id
                 userid=response.authResponse.userID;
-                
-
-                var facebook_id = Parse.object.extend("Facebook_ID");
-                var query = new facebook_id();
-                query.set("Number",userid);
-
                 console.log('usererid: '+userid);
 
 
@@ -224,6 +218,14 @@
         FB.api('/me', function (response) {
                console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+        });
+
+        FB.api('/me', function (response) {
+
+        var facebook_id = Parse.object.extend("Facebook_ID");
+        var query = new Query(facebook_id);
+        query.set("Number",id);
+        //$('#profile_name').append(response['first_name']+ "  " + response['last_name']);
         });
 
       }
