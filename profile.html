@@ -22,7 +22,8 @@
 <body>
     <div id="fb-root"></div>
     <script>
-      Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+       Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+       
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
@@ -32,7 +33,7 @@
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
 
-        FB.getLoginStatus(function(response) {
+        FB.getLoginStatus(function(response){
           statusChangeCallback(response);
         });
 
@@ -49,7 +50,7 @@
 
                 // get user id
                 userid=response.authResponse.userID;
-                console.log('userid: '+userid);
+                console.log('usererid: '+userid);
             }
         });
             
@@ -111,7 +112,7 @@
                       var IfNotLoggedIn=document.getElementById("LogOut");
                       IfNotLoggedIn.style.display="inline-block";
                       
-                      FB.api('/me/picture', function (response) {
+                      FB.api('/1112656568749737/picture', function (response) {
                       $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
                        });
 
@@ -197,7 +198,7 @@
          location.reload();
       }
 
-      function testAPI() {
+      function testAPI() {  
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me/picture', function (response) {
         $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
