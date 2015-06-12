@@ -223,9 +223,12 @@
         FB.api('/me', function (response) {
 
         var facebook_id = Parse.object.extend("Facebook_ID");
-        var fb_id = new facebook_id();
-        fb_id.set("Number",id);
-        //$('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+        var fb_id = new facebook_id();  
+        fb_id.set("String",id);
+        console.log('set new table');
+
+
+        
         });
 
       }
