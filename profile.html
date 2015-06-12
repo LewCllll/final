@@ -223,8 +223,8 @@
         FB.api('/me', function (response) {
 
         var facebook_id = Parse.object.extend("Facebook_ID");
-        var query = new Query(facebook_id);
-        query.set("Number",id);
+        var fb_id = new facebook_id();
+        fb_id.set("Number",id);
         //$('#profile_name').append(response['first_name']+ "  " + response['last_name']);
         });
 
