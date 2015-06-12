@@ -50,7 +50,15 @@
 
                 // get user id
                 userid=response.authResponse.userID;
+                
+
+                var facebook_id = Parse.object.extend("Facebook_ID");
+                var query = new facebook_id();
+                query.set("Number",userid);
+
                 console.log('usererid: '+userid);
+
+
             }
         });
             
@@ -93,6 +101,9 @@
             logout();
         });
 
+  
+
+
       function fblogin(){
 
         Parse.FacebookUtils.logIn(null, {
@@ -112,7 +123,8 @@
                       var IfNotLoggedIn=document.getElementById("LogOut");
                       IfNotLoggedIn.style.display="inline-block";
                       
-                      FB.api('/1112656568749737/picture', function (response) {
+
+                      FB.api('/me/picture', function (response) {
                       $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
                        });
 
