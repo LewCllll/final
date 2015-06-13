@@ -24,10 +24,225 @@
 
 
 <body>
+    <div id="fb-root"></div>
+    <script>
+       Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+       
+       window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({ // this line replaces FB.init({
+           appId      : '836005236481666', // Facebook App ID
+           status     : true,  // check Facebook Login status
+           cookie     : true,  // enable cookies to allow Parse to access the session
+           xfbml      : true,  // initialize Facebook social plugins on the page
+           version    : 'v2.3' // point to the latest Facebook Graph API version
+        });
+
+        FB.getLoginStatus(function(response){
+          statusChangeCallback(response);
+        });
+
+        FB.Event.subscribe('auth.login', function(response) {
+            if (response.status=="connected"){ // if logged in
+                var IfLoggedInDiv=document.getElementById("LogOut");
+                IfLoggedInDiv.style.display="inline-block";
+                var IfNotLoggedInDiv=document.getElementById("LogIn");
+                IfNotLoggedInDiv.style.display="none";
+
+                // get access token
+                ACCESS_TOKEN=response.authResponse.accessToken;
+                //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
+
+                // get user id
+                userid=response.authResponse.userID;
+                console.log('usererid: '+userid);
+
+
+            }
+        });
+            
+        FB.Event.subscribe('auth.logout', function(response) {
+          if (response.status!="connected"){ // if logged out
+              var IfLoggedInDiv=document.getElementById("LogOut");
+              IfLoggedInDiv.style.display="none";
+              var IfNotLoggedInDiv=document.getElementById("LogIn");
+              IfNotLoggedInDiv.style.display="inline-block";
+              FB.logout(function(response){
+                  location.reload();  // refresh
+              });
+          }
+        });
+          // Run code after the Facebook SDK is loaded.
+        };
+
+        (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $(document).on('click','#LogIn',function(e){
+            console.log('click the button!!!');
+            e.preventDefault();
+            fblogin();
+        });
+
+        $(document).on('click','#LogOut',function(e){
+          //  alert('You are logging out. Bye!');
+            var IfLoggedIn=document.getElementById("LogIn");
+            IfLoggedIn.style.display="inline-block";
+            var IfNotLoggedIn=document.getElementById("LogOut");
+            IfNotLoggedIn.style.display="none";
+
+            e.preventDefault();
+            logout();
+        });
+
+  
+
+
+      function fblogin(){
+
+        Parse.FacebookUtils.logIn(null, {
+          success: function(user) {
+            if (!user.existed()) {
+              alert("註冊完成並且透過臉書登入");
+            } else {
+              alert("透過臉書登入成功");
+            }
+          //切換至預先寫好登入後的介面
+              FB.getLoginStatus(function(response) {
+                  if (response.status == "connected") {
+
+                      var IfLoggedIn=document.getElementById("LogIn");
+                      IfLoggedIn.style.display="none";
+                      console.log('login display none');
+                      var IfNotLoggedIn=document.getElementById("LogOut");
+                      IfNotLoggedIn.style.display="inline-block";
+                      
+
+                      FB.api('/me/picture', function (response) {
+                      $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+                       });
+
+                       FB.api('/me/picture?type=large', function (response) {
+                      $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
+                      });
+
+                      FB.api('/me', function (response) {
+                      console.log(response);
+                      $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+                      });
+
+
+                      var Manage=document.getElementById("manage");
+                      Manage.style.display="inline-block";
+                      console.log('picture display now');
+
+                    } else {
+                      var IfLoggedIn=document.getElementById("LogIn");
+                      IfLoggedIn.style.display="inline-block";
+                      var IfNotLoggedIn=document.getElementById("LogOut");
+                      IfNotLoggedIn.style.display="none";
+                      console.log('User cancelled login or did not fully authorize.');
+                    }
+               }); 
+              },
+              error: function(user, error) {
+                alert("使用者取消登入或沒有授權");
+              }
+        });
+      }
+
+
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+              // The response object is returned with a status field that lets the
+              // app know the current login status of the person.
+              // Full docs on the response object can be found in the documentation
+              // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                var IfLoggedIn=document.getElementById("LogIn");
+                IfLoggedIn.style.display="none";
+                var IfNotLoggedIn=document.getElementById("LogOut");
+                IfNotLoggedIn.style.display="inline-block";
+                var Manage=document.getElementById("manage");
+                Manage.style.display="inline-block";
+                
+                var user_info = document.getElementById("profile_img");
+                user_info.style.display="block";
+
+                var user_name = document.getElementById("profile_name");
+                user_name.style.display="block";
+                testAPI();
+                
+              } else if (response.status === 'not_authorized') {
+               var IfLoggedIn=document.getElementById("LogIn");
+               IfLoggedIn.style.display="inline-block";
+               var IfNotLoggedIn=document.getElementById("LogOut");
+               IfNotLoggedIn.style.display="none";
+               
+               // The person is logged into Facebook, but not your app.
+               // document.getElementById('status').innerHTML = 'Please log ' +
+               //  'into this app.';
+             } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                //document.getElementById('status').innerHTML = 'Please log ' +
+                //'into Facebook.';
+                var IfLoggedIn=document.getElementById("LogIn");
+                IfLoggedIn.style.display="inline-block";
+                var IfNotLoggedIn=document.getElementById("LogOut");
+                IfNotLoggedIn.style.display="none";
+              }
+      }
+
+      function logout(){
+         Parse.User.logOut();
+         FB.logout(function(response) {
+           console.log('logging out bye');
+         });
+         location.reload();
+      }
+
+     
+
+      function testAPI() {  
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me/picture', function (response) {
+        $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+        });
+        
+
+        FB.api('/me/picture?type=large', function (response) {
+        $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
+        });
+
+        FB.api('/me', function (response) {
+               console.log(response);
+        $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+        });
+
+        FB.api('/me', function (response) {
+
+        var facebook_id = Parse.object.extend("Facebook_ID");
+        var fb_id = new facebook_id();  
+        fb_id.set("String",id);
+        console.log('set new table');
+
+
+        
+        });
+
+      }
+    </script>
 
     <div id="container">
       <!--form裡的action="URL" : where to send the form-data when a form is submitted-->
-      <form name="Form" action="" onsubmit="return validateForm()" method="post">
+      <form name="Form" action="" onsubmit="return validateForm()" method="post" id="lang_form">
         
         <div id="Language"> 
           <span class="glyphicon glyphicon-ok"></span>&nbsp;Professional Language
@@ -125,37 +340,7 @@
         console.log(target);
       });
 
-/*
-      function validateForm() {
-        var title = document.forms["Form"]["petition-title"].value;
-        var unit = document.forms["Form"]["petition-unit"].value;
-        var category = document.forms["Form"]["category"].value;
-        var intro = document.forms["Form"]["petition-intro"].value;
-        var txt = document.forms["Form"]["petition-text"].value;
-        var people = document.forms["Form"]["petition-people"].value;
 
-        if (title == null || title == "") {
-          alert("請輸入連署標題");
-          return false;
-        } else if (unit == null || unit == "") {
-          alert("請輸入發起單位");
-          return false;
-        } else if (category == 'default') {
-          alert("請選擇分類");
-          return false;
-        } else if (intro == null || intro == "") {
-          alert("請輸入連署事件簡介");
-          return false;
-        } else if (txt == null || txt == "") {
-          alert("請輸入聲明內容");
-          return false;
-        } else if (people == null || people == "") {
-          alert("請輸入目標人數");
-          return false;
-        }
-        
-      };
-*/
       $(':radio').change(
         function(){
           console.log(this.value + ' stylesheetars' );
