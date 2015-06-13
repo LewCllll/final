@@ -272,11 +272,12 @@
               function(){
                 console.log(this.value + ' stylesheetars' );
                 var star = this.value;
+                info_p.set("star",this.value);
               } 
             )
 
 
-          info_p.set("star", star);
+          
           
 
           info_p.save(null,{
