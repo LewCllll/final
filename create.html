@@ -274,33 +274,21 @@
 
 
           if(star1.checked){
-            if(star2.checked){
-                if(star3.checked){
-                  
-                      if(star4.checked){
-                        
-                        if(star5.checked){
-                          info_p.set("star",5);
-                        }
-                        else {
-                          info_p.set("star",4);
-                        }
-                      }
-                      else {
-                        info_p.set("star",3);
-                      }
-                }
-                else {
-                  info_p.set("star",2);
-                }
-            }
-            else {
-              info_p.set("star",1);
-            }
+            info_p.set("star",1);
           }
-          else {
-            info_p.set("star",0);
+          if(star2.checked){
+            info_p.set("star",2);
           }
+          if(star3.checked){
+            info_p.set("star",3);
+          }
+          if(star4.checked){
+            info_p.set("star",4);
+          }
+          if(star5.checked){
+            info_p.set("star",5);
+          }
+
 
 
 
