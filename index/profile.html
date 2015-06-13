@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XLanguage</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="struct.css">
+  <link rel="stylesheet" type="text/css" href="profile.css">
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="tab.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+
+    <!-- Add jQuery library -->
+  <script type="text/javascript" src="../lib/jquery-1.10.1.min.js"></script>
+
+  <!-- Add mousewheel plugin (this is optional) -->
+  <script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+  <!-- Add fancyBox main JS and CSS files -->
+  <script type="text/javascript" src="../source/jquery.fancybox.js?v=2.1.5"></script>
+  <link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+  <!-- Add Button helper (this is optional) -->
+  <link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+  <script type="text/javascript" src="../source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+  <!-- Add Thumbnail helper (this is optional) -->
+  <link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+  <script type="text/javascript" src="../source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+  <!-- Add Media helper (this is optional) -->
+  <script type="text/javascript" src="../source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+</head>
+
+
+<body>
+    <div id="fb-root"></div>
+    <script>
+       Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+       
+       window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({ // this line replaces FB.init({
+           appId      : '836005236481666', // Facebook App ID
+           status     : true,  // check Facebook Login status
+           cookie     : true,  // enable cookies to allow Parse to access the session
+           xfbml      : true,  // initialize Facebook social plugins on the page
+           version    : 'v2.3' // point to the latest Facebook Graph API version
+        });
+
+        FB.getLoginStatus(function(response){
+          statusChangeCallback(response);
+        });
+
+        FB.Event.subscribe('auth.login', function(response) {
+            if (response.status=="connected"){ // if logged in
+                var IfLoggedInDiv=document.getElementById("LogOut");
+                IfLoggedInDiv.style.display="inline-block";
+                var IfNotLoggedInDiv=document.getElementById("LogIn");
+                IfNotLoggedInDiv.style.display="none";
+
+                // get access token
+                ACCESS_TOKEN=response.authResponse.accessToken;
+                //console.log('ACCESS_TOKEN: '+ACCESS_TOKEN);
+
+                // get user id
+                userid=response.authResponse.userID;
+                console.log('usererid: '+userid);
+
+
+            }
+        });
+            
+        FB.Event.subscribe('auth.logout', function(response) {
+          if (response.status!="connected"){ // if logged out
+              var IfLoggedInDiv=document.getElementById("LogOut");
+              IfLoggedInDiv.style.display="none";
+              var IfNotLoggedInDiv=document.getElementById("LogIn");
+              IfNotLoggedInDiv.style.display="inline-block";
+              FB.logout(function(response){
+                  location.reload();  // refresh
+              });
+          }
+        });
+          // Run code after the Facebook SDK is loaded.
+        };
+
+        (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $(document).on('click','#LogIn',function(e){
+            console.log('click the button!!!');
+            e.preventDefault();
+            fblogin();
+        });
+
+        $(document).on('click','#LogOut',function(e){
+          //  alert('You are logging out. Bye!');
+            var IfLoggedIn=document.getElementById("LogIn");
+            IfLoggedIn.style.display="inline-block";
+            var IfNotLoggedIn=document.getElementById("LogOut");
+            IfNotLoggedIn.style.display="none";
+
+            e.preventDefault();
+            logout();
+        });
+
+  
+
+
+      function fblogin(){
+
+        Parse.FacebookUtils.logIn(null, {
+          success: function(user) {
+            if (!user.existed()) {
+              alert("註冊完成並且透過臉書登入");
+            } else {
+              alert("透過臉書登入成功");
+            }
+          //切換至預先寫好登入後的介面
+              FB.getLoginStatus(function(response) {
+                  if (response.status == "connected") {
+
+                      var IfLoggedIn=document.getElementById("LogIn");
+                      IfLoggedIn.style.display="none";
+                      console.log('login display none');
+                      var IfNotLoggedIn=document.getElementById("LogOut");
+                      IfNotLoggedIn.style.display="inline-block";
+                      
+
+                      FB.api('/me/picture', function (response) {
+                      $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+                       });
+
+                       FB.api('/me/picture?type=large', function (response) {
+                      $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
+                      });
+
+                      FB.api('/me', function (response) {
+                      console.log(response);
+                      $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+                      });
+
+
+                      var Manage=document.getElementById("manage");
+                      Manage.style.display="inline-block";
+                      console.log('picture display now');
+
+                    } else {
+                      var IfLoggedIn=document.getElementById("LogIn");
+                      IfLoggedIn.style.display="inline-block";
+                      var IfNotLoggedIn=document.getElementById("LogOut");
+                      IfNotLoggedIn.style.display="none";
+                      console.log('User cancelled login or did not fully authorize.');
+                    }
+               }); 
+              },
+              error: function(user, error) {
+                alert("使用者取消登入或沒有授權");
+              }
+        });
+      }
+
+
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+              // The response object is returned with a status field that lets the
+              // app know the current login status of the person.
+              // Full docs on the response object can be found in the documentation
+              // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                var IfLoggedIn=document.getElementById("LogIn");
+                IfLoggedIn.style.display="none";
+                var IfNotLoggedIn=document.getElementById("LogOut");
+                IfNotLoggedIn.style.display="inline-block";
+                var Manage=document.getElementById("manage");
+                Manage.style.display="inline-block";
+                
+                var user_info = document.getElementById("profile_img");
+                user_info.style.display="block";
+
+                var user_name = document.getElementById("profile_name");
+                user_name.style.display="block";
+                testAPI();
+                
+              } else if (response.status === 'not_authorized') {
+               var IfLoggedIn=document.getElementById("LogIn");
+               IfLoggedIn.style.display="inline-block";
+               var IfNotLoggedIn=document.getElementById("LogOut");
+               IfNotLoggedIn.style.display="none";
+               
+               // The person is logged into Facebook, but not your app.
+               // document.getElementById('status').innerHTML = 'Please log ' +
+               //  'into this app.';
+             } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                //document.getElementById('status').innerHTML = 'Please log ' +
+                //'into Facebook.';
+                var IfLoggedIn=document.getElementById("LogIn");
+                IfLoggedIn.style.display="inline-block";
+                var IfNotLoggedIn=document.getElementById("LogOut");
+                IfNotLoggedIn.style.display="none";
+              }
+      }
+
+      function logout(){
+         Parse.User.logOut();
+         FB.logout(function(response) {
+           console.log('logging out bye');
+         });
+         location.reload();
+      }
+
+     
+
+      function testAPI() {  
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me/picture', function (response) {
+        $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+        });
+        
+
+        FB.api('/me/picture?type=large', function (response) {
+        $('#profile_img').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview2 />");          
+        });
+
+        FB.api('/me', function (response) {
+               console.log(response);
+        $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+        });
+
+        FB.api('/me', function (response) {
+
+        var facebook_id = Parse.object.extend("Facebook_ID");
+        var fb_id = new facebook_id();  
+        fb_id.set("String",id);
+        console.log('set new table');
+
+
+        
+        });
+
+      }
+    </script>
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+
+              <a class="brand" href="#">
+              <img src="logo.png" id="logo"></a>
+            </div>
+
+
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">About Us</a></li>
+
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> XLanguager<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  
+                  <div class="display_inline">
+                  <ul>
+                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                  </ul>
+                  </div>
+                  
+                  <div class="display_inline">
+                  <ul>
+                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                  </ul>
+                  </div>
+
+                  <div class="display_inline">
+                  <ul>
+                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
+                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
+                  </ul>
+                  </div>
+                </ul>
+                </li>
+
+                <li>
+                <form class="navbar-form" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <a class="fa fa-search"></a>
+                </form>
+
+              
+                </li>
+              </ul>
+
+
+              <ul class="nav pull-right">
+             
+              <a title="Login/Register" id="LogIn"><div class="orange ui buttons">
+              <div class="ui button">Login</div></div></a>
+
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="manage">
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">calendar</a></li>
+                <li> <a  title="Login/Register" id="LogOut"><div class="orange ui buttons">
+                <div class="ui button">Logout</div></div></a></li>
+                </ul>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+         </div>
+        </nav>
+
+      <div id="body">
+                  <div class="profileInfo">
+                      <div class="aboutBar">
+                     <!-- 
+                        <img src="profile.jpg" class="img-circle" width="140" height="140" id="profile_img">-->
+
+                        <div href="#" id="profile_img" class="profileimg" ></div>
+                        
+                        <a class="fa fa-cog fa-2x" id="fancybox-manual-b"></a>
+                        <div id="profile_name"></div>
+                      </div>
+                  </div>
+
+
+<div class="wrapper">
+  <ul class="tabs">
+    <li class="active"><a href="#profile"><br>Profile</a></li>
+    <li><a href="#calendar"><br>calendar</a></li>
+    <li><a href="#follower"><span class="value" id="follower_count">0</span> <br><span class="label">Follower</span></a></li>
+    <li><a href="#following"><span class="value" id="following_count">0</span> <br><span class="label">Following</a></li>
+  </ul>
+  <div class="clr"></div>
+
+  <section class="block">
+
+    <article id="profile">
+      <div class="profile_info">
+        <p>LANGUAGE:<span class="label">French</span></p>
+        <p>LEVEL:<span class="label">5 STAR</span></p>
+        <p>INFO:<span class="label"></span></p>
+        <p>PREFER:<span class="label">Skype</span></p>
+      </div>
+
+      <div class="comment">
+        <div class="row">
+        <div class="people col-md-2">
+          <img src="profile.jpg" class="img-circle" width="75" height="75">
+          <p>※※※※※</p>
+        </div>
+
+        <div class="comment_contents col-md-10">f
+          <p>He is a very good xlanguager!! pretty recommend him!</p>
+        </div>
+
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="row">
+        <div class="people col-md-2">
+          <img src="profile.jpg" class="img-circle" width="75" height="75">
+          <p>※※</p>
+        </div>
+
+        <div class="comment_contents col-md-10">
+          <p>He is a very good xlanguager!! pretty recommend him!</p>
+        </div>
+
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="row">
+        <div class="people col-md-2">
+          <img src="profile.jpg" class="img-circle" width="75" height="75">
+          <p>※※※</p>
+        </div>
+
+        <div class="comment_contents col-md-10">
+          <p>He is a very good xlanguager!! pretty recommend him!</p>
+        </div>
+
+        </div>
+      </div>
+
+      <div class="comment_type">
+        <div class="rating">
+          <p>Rating:
+          <span>※※※※※</span></p>
+        </div>
+        <div class="comment_typecontents">
+          <input type="text" id="contents" placeholder="Type your comments !!">
+        </div>
+
+      </div>
+    </article>
+    
+    <article id="calendar">
+      <div class="profile_calendar">
+        <img src="calendar.jpg" class="calendar">
+        <p>Your Booked Time: <span class="label"> </span></p>
+        <span class="label"> 2014/05/01</span> <span class="label who"> Amy Hsu</span>
+        <span class="label place"> DA-REN Building.</span>
+      </div>
+    </article>
+    
+    <article id="follower">
+      <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+    </article>
+    
+    <article id="following">
+      <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+    </article>
+
+  </section>
+</div>
+  
+</div>
+</body>
+
+<script>
+     $("#fancybox-manual-b").click(function() {
+        $.fancybox.open({
+          href : 'create.html',
+          type : 'iframe',
+          padding : 5
+        });
+      });
+</script>
+</html>

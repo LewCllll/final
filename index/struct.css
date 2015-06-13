@@ -1,0 +1,83 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+#body{
+	width:960px;
+	min-height:1500px;
+	margin:auto;
+	margin-top:80px;
+}
+
+body{
+	background-image:url(background.png);
+}	
+
+#logo{
+	width:80%;
+	z-index: 100;
+}
+
+body{
+	font-size: 18px;
+}
+	
+
+.navbar-static-top .container{
+	width:960px;
+}
+
+.container{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.nav{
+	padding:0;
+	position:relative;
+}
+
+.nav{
+	list-style: none;
+}
+
+.navbar-header{
+	width:8%;
+}
+
+.navbar .nav > li {
+  float: left;
+}
+
+.navbar .brand {
+  padding: 0px;
+  margin: 0px;
+  margin-left: -10px;
+  max-height: 50px;
+}
+
+.navbar{
+	background-image:url(background.png);
+}
+
+/*
+.navbar-inner > .container{
+	background-color: white;
+}
+*/
+
+.dropdown > ul {
+	width:200%;
+	background-color: #F5F5F5;
+}
+
+.display_inline ul li{
+	display:inline;
+	margin:30px 10px;
+}
+
+.display_inline{
+	margin-bottom: 20px;
+	margin-top: 15px;
+}
+
+.caret{
+	z-index: 100;
+}
