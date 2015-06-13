@@ -25,6 +25,7 @@
 
 <body>
     <div id="fb-root"></div>
+    
     <script>
        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
        
@@ -233,101 +234,57 @@
         fb_id.set("String",id);
         console.log('set new table');
 
-
-        
         });
 
       }
+
+      $(document).on('submit','#lang_form',function(e){
+          e.preventDefault();
+
+          var personalinfo = Parse.Object.extend("personalinfo") ;
+          var info_p = new personalinfo();
+          
+          var lang_japan = document.getElementById('lang_japan');
+          var lang_spain = document.getElementById('lang_spain');
+          var lang_frence = document.getElementById('lang_frence');
+
+          if(lang_japan.checked){
+            info_p.set("japan", true);
+            console.log('japanese is selected');
+          }
+
+          if(lang_spain.checked){
+            info_p.set("spain", true);
+            console.log('spainish is selected');
+          }
+
+
+          if(lang_frence.checked){
+            info_p.set("frence", true);
+            console.log('french is selected');
+          }
+
+
+          info_p.save(null,{
+            success: function(info_p){
+              console.log(info_p);
+              alert("info_p save successfully!");
+            },
+            error: function(info_p,error){
+              console.log(error);
+              alert(error.message);
+            }
+        });
+        //--
+        console.log('submit');
+
+      });
+
     </script>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-inner">
-          <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-
-              <a class="brand" href="#">
-              <img src="logo.png" id="logo"></a>
-            </div>
-
-
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#">About Us</a></li>
-
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> XLanguager<span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  
-                  <div class="display_inline">
-                  <ul>
-                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
-                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
-                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
-                  </ul>
-                  </div>
-                  
-                  <div class="display_inline">
-                  <ul>
-                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
-                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
-                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
-                  </ul>
-                  </div>
-
-                  <div class="display_inline">
-                  <ul>
-                  <li><a href="#"><img src="spain.jpg" class="img-circle" width="50" height="50"></a></li>
-                  <li><a href="#"><img src="japan.jpg" class="img-circle" width="50" height="50"></a></li>
-                  <li><a href="#"><img src="french.jpg" class="img-circle" width="50" height="50"></a></li>
-                  </ul>
-                  </div>
-                </ul>
-                </li>
-
-                <li>
-                <form class="navbar-form" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                  </div>
-                  <a class="fa fa-search"></a>
-                </form>
-
-              
-                </li>
-              </ul>
-
-
-              <ul class="nav pull-right">
-             
-              <a title="Login/Register" id="LogIn"><div class="orange ui buttons">
-              <div class="ui button">Login</div></div></a>
-
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="manage">
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">calendar</a></li>
-                <li> <a  title="Login/Register" id="LogOut"><div class="orange ui buttons">
-                <div class="ui button">Logout</div></div></a></li>
-                </ul>
-                </li>
-              </ul>
-
-            </div>
-          </div>
-         </div>
-        </nav>
 
     <div id="container">
       <!--form裡的action="URL" : where to send the form-data when a form is submitted-->
-      <form name="Form" action="" onsubmit="return validateForm()" method="post" id="lang_form">
+      <form name="Form" action="" method="post" id="lang_form">
         
         <div id="Language"> 
           <span class="glyphicon glyphicon-ok"></span>&nbsp;Professional Language
@@ -431,9 +388,6 @@
           console.log(this.value + ' stylesheetars' );
         } 
       )
-
-
-
     </script>
 
 
