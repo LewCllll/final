@@ -237,12 +237,7 @@
 
       }
 
-      $(':radio').change(
-        function(){
-          console.log(this.value + ' stylesheetars' );
-        } 
-      )
-
+     
       $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
 
@@ -273,11 +268,13 @@
             console.log('french is selected');
           }
 
-          if(':radio'.change){
-            function{
-              var star = this.value;
-            }
-          }
+           $(':radio').change(
+              function(){
+                console.log(this.value + ' stylesheetars' );
+                var star = this.value;
+              } 
+            )
+
 
           info_p.set("star", star);
           
