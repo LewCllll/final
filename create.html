@@ -289,6 +289,14 @@
             info_p.set("star",5);
           }
 
+          else {
+            info_p.set("star",0);
+            console.log('no comment');
+          }
+
+          var opt = $("option[val=ID]");
+          info_p.set("status", opt);
+
 
 
 
@@ -380,14 +388,15 @@
           
         </div>
 
+        
 
         <div id="prefer"> 
           <span class="glyphicon glyphicon-ok"></span>&nbsp;Prefer Manners
           <select name="prefer" id="prefer">
             <option value="default">choose </option>
-            <option value="skype">Skype</option>
-            <option value="face-to-face">Face To Face</option>
-            <option value="group">Group</option>
+            <option id="skype">Skype</option>
+            <option id="face-to-face">Face To Face</option>
+            <option id="group">Group</option>
           </select>
         </div>
 
