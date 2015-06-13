@@ -229,14 +229,19 @@
 
         FB.api('/me', function (response) {
 
-        var facebook_id = Parse.object.extend("Facebook_ID");
-        var fb_id = new facebook_id();  
+
         fb_id.set("String",id);
         console.log('set new table');
 
         });
 
       }
+
+      $(':radio').change(
+        function(){
+          console.log(this.value + ' stylesheetars' );
+        } 
+      )
 
       $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
@@ -247,6 +252,10 @@
           var lang_japan = document.getElementById('lang_japan');
           var lang_spain = document.getElementById('lang_spain');
           var lang_frence = document.getElementById('lang_frence');
+
+          info_p.set("japan",false);
+          info_p.set("spain",false);
+          info_p.set("frence",false);
 
           if(lang_japan.checked){
             info_p.set("japan", true);
@@ -264,6 +273,14 @@
             console.log('french is selected');
           }
 
+          if(':radio'.change){
+            function{
+              var star = this.value;
+            }
+          }
+
+          info_p.set("star", star);
+          
 
           info_p.save(null,{
             success: function(info_p){
@@ -383,11 +400,7 @@
       });
 
 
-      $(':radio').change(
-        function(){
-          console.log(this.value + ' stylesheetars' );
-        } 
-      )
+      
     </script>
 
 
