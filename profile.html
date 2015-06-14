@@ -227,6 +227,7 @@
          location.reload();
       }
 
+
      
 
       function testAPI() {  
@@ -245,11 +246,27 @@
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
         });
 
-        FB.api('/me', function (response) {
-        });
+        var personalinfo = Parse.Object.extend("personalinfo"); 
+        var info_p = new Parse.Query(personalinfo);
 
-      }
+        info_p.find({
+          success:function(array1){
+            console.log(array1);
 
+            var array_length = array1.length;
+            var facebookid = array1[3].get('fb_id');
+            console.log(userid);
+            console.log(facebookid);
+          },
+
+          error: function(error) {
+              console.log(error) ;
+              alert(error.message);
+            }
+          });
+        }
+
+/*
       var f;
       var j;
       var s;
@@ -263,15 +280,14 @@
         info_p.find({
           success: function(response) {
               console.log(response);
-              
-              userid=response.authResponse.userID;
-              console.log('here comes userid' +userid);
+
 
               var response_length = response.length;
 
               var facebookid = response[3].get('fb_id');
               var star = response[3].get('star');
 
+              
               
               console.log(userid);
               console.log(star);
@@ -288,7 +304,7 @@
                    console.log("spainish is" + s);
                    i=response_length;
                 }
-              }*/
+              }
 
 
           },
@@ -307,7 +323,7 @@
         }
 
       });
-
+*/
       
     </script>
 
