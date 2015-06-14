@@ -273,10 +273,16 @@
                 starnum=array1[i].get('star');
                 inform_after =array1[i].get('information');
 
-                console.log("French is" + f);
-                console.log("spainish is" + s);
+                i=-1;
               }
 
+            }
+            if(f==true){
+              $('#language').append("FRENCH");
+            }
+
+            if(s==true){
+              $('#language').append("SPAINISH");s
             }
 
           },
