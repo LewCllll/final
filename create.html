@@ -85,7 +85,7 @@
 
         $(document).on('click','#LogIn',function(e){
             console.log('click the button!!!');
-            e.preventDefault();
+            e.prefblventDefault();
             fblogin();
         });
 
@@ -237,6 +237,11 @@
 
       }
 
+      if(lang_japan.checked || lang_spain.checked || lang_frence.checked){
+        fblogin();
+        console.log('fblogin is set!!');
+      }
+
      
       $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
@@ -293,14 +298,6 @@
           else{  
             console.log('no comment');
           }
-
-
-
-
-
-
-          
-          
 
           info_p.save(null,{
             success: function(info_p){
