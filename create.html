@@ -114,7 +114,11 @@
               alert("透過臉書登入成功");
             }
           //切換至預先寫好登入後的介面
-              FB.getLoginStatus(function(response) {
+              FB.getLoginStatus(function(response) {  
+                userid=response.authResponse.userID;
+
+                console.log('here comes userid' + userid);
+
                   if (response.status == "connected") {
 
                       var IfLoggedIn=document.getElementById("LogIn");
