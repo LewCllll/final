@@ -249,9 +249,20 @@
         var fb_id = new facebook_id();  
         fb_id.set("String",id);
         console.log('set new table');
+        });
+
+        $("#fancybox-manual-b").click(function() {
+        var personalinfo = Parse.Object.extend("personalinfo") ;
+        var info_p = new personalinfo();
 
 
-        
+        info_p.set("fb_id", id);
+
+        $.fancybox.open({
+          href : 'create.html',
+          type : 'iframe',
+          padding : 5
+        });
         });
 
       }
@@ -456,12 +467,8 @@
 </body>
 
 <script>
-     $("#fancybox-manual-b").click(function() {
-        $.fancybox.open({
-          href : 'create.html',
-          type : 'iframe',
-          padding : 5
-        });
-      });
+
+
+
 </script>
 </html>
