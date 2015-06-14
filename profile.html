@@ -246,20 +246,21 @@
         FB.api('/me', function (response) {
         });
 
-        $("#fancybox-manual-b").click(function() {
+      }
+
+       $("#fancybox-manual-b").click(function() {
         var personalinfo = Parse.Object.extend("personalinfo") ;
         var info_p = new personalinfo();
 
         info_p.set("fb_id",userid);
+        
 
         $.fancybox.open({
           href : 'create.html',
           type : 'iframe',
           padding : 5
         });
-        });
-
-      }
+      });
     </script>
 
 
