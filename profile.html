@@ -266,8 +266,8 @@
               var response_length = response.length;
 
               for(var i=0; i<response_length; i++){
-                var id= response[i].get('fb_id');
-                console.log(id);
+                var facebookid= response[i].get('fb_id');
+                console.log(facebookid);
                 console.log(userid);
                 if( id == userid) {
                    f=response[i].get('frence');
