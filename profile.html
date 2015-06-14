@@ -265,10 +265,10 @@
 
               var response_length = response.length;
 
-              for(var i=0; i<response_length; i++){
+              var facebookid = response[0].get('fb_id');
+              console.log(facebookid);
+              /*for(var i=0; i<response_length; i++){
                 var facebookid= response[i].get('fb_id');
-                console.log(facebookid);
-                console.log(userid);
                 if( id == userid) {
                    f=response[i].get('frence');
                    j=response[i].get('japan');
@@ -280,7 +280,9 @@
                    console.log("spainish is" + s);
                    i=response_length;
                 }
-              }
+              }*/
+
+
           },
           error: function(error) {
               console.log(error) ;
