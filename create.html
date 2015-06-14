@@ -28,7 +28,8 @@
     
     <script>
        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
-       
+       var userid;
+
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
@@ -166,8 +167,6 @@
             var personalinfo = Parse.Object.extend("personalinfo") ;
             var info_p = new personalinfo();
 
-            info_p.set("fb_id", userid);
-            console.log(userid);
               // The response object is returned with a status field that lets the
               // app know the current login status of the person.
               // Full docs on the response object can be found in the documentation
@@ -318,6 +317,10 @@
           else{  
             console.log('no comment');
           }
+
+
+          info_p.set("fb_id", userid);
+          console.log(userid);
 
           info_p.save(null,{
             success: function(info_p){
