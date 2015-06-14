@@ -44,7 +44,8 @@
     <div id="fb-root"></div>
     <script>
        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
-       
+       var userid;
+
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
@@ -248,6 +249,51 @@
 
       }
 
+      var f;
+      var j;
+      var s;
+      var starnum;
+      var inform_after;
+
+      $(document).ready(function(){
+        var personalinfo = Parse.Object.extend("personalinfo"); 
+        var info_p = new personalinfo();
+
+        info_p.find({
+          success: function(response) {
+              console.log(response);
+
+              var response_length = response.length;
+
+              for(var i=0; i<response_length; i++){
+                var id= response[i].get('fb_id');
+                if( id == userid) {
+                   f=response[i].get('frence');
+                   j=response[i].get('japan');
+                   s=response[i].get('spain');
+                   starnum=response[i].get('star');
+                   inform_after =esponse[i].get('information');
+                  
+                   i=response_length;
+                }
+              }
+          },
+          error: function(error) {
+              console.log(error) ;
+              alert(error.message);
+            }
+          });
+
+        if(f==true){
+          $('#language').append("FRENCH");
+        }
+
+        if(s==true){
+          $('#language').append("SPAINISH");
+        }
+
+      });
+
       
     </script>
 
@@ -366,10 +412,10 @@
 
     <article id="profile">
       <div class="profile_info">
-        <p>LANGUAGE:<span class="label">French</span></p>
-        <p>LEVEL:<span class="label">5 STAR</span></p>
-        <p>INFO:<span class="label"></span></p>
-        <p>PREFER:<span class="label">Skype</span></p>
+        <p>LANGUAGE:<div id="language"></div></p>
+        <p>LEVEL:<div id="star"></div> STAR</p>
+        <p>PREFER:<div id="prefer"></div></p>
+        <p>MORE INFORMATION:<div id="more_inform"></div></p>
       </div>
 
       <div class="comment">
