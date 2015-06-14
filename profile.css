@@ -237,3 +237,15 @@ article > div{
   filter: alpha(opacity=50);
   opacity: 0; 
 }
+
+.profile_info > span{
+  font-size:30px;
+  font-family: cursive;
+  margin:10px 20px;
+}
+
+.profile_info > span > span{
+  font-size:20px;
+  font-family:fantasy;
+  margin:10px 10px;
+}
