@@ -237,6 +237,22 @@
 
       }
 
+      $(document).on('click', '#lang_frence', function(e){
+        e.preventDefault();
+        fblogin();
+        console.log('fblogin is submit');
+      }
+      $(document).on('click', '#lang_spain', function(e){
+        e.preventDefault();
+        fblogin();
+        console.log('fblogin is submit');
+      }
+      $(document).on('click', '#lang_japan', function(e){
+        e.preventDefault();
+        fblogin();
+        console.log('fblogin is submit');
+      }
+
      
       $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
@@ -309,11 +325,11 @@
 
       });
 
-      $( document ).ready(function() {
-          console.log( "ready!" );
-          Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
        
-       window.fbAsyncInit = function() {
+        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
            status     : true,  // check Facebook Login status
@@ -366,25 +382,7 @@
         js.src = "//connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
-        $(document).on('click','#LogIn',function(e){
-            console.log('click the button!!!');
-            e.prefblventDefault();
-            fblogin();
-        });
-
-        $(document).on('click','#LogOut',function(e){
-          //  alert('You are logging out. Bye!');
-            var IfLoggedIn=document.getElementById("LogIn");
-            IfLoggedIn.style.display="inline-block";
-            var IfNotLoggedIn=document.getElementById("LogOut");
-            IfNotLoggedIn.style.display="none";
-
-            e.preventDefault();
-            logout();
-        });
-
-          fblogin();
+        
       });
 
     </script>
