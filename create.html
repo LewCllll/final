@@ -318,6 +318,11 @@
             console.log('no comment');
           }
 
+          var prefer = document.getElementById('prefer');
+          var preference = prefer.options[prefer.selectedIndex].text;
+
+          info_p.set("preference", preference);
+
 
           info_p.set("fb_id", userid);
           console.log(userid);
