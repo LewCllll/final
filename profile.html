@@ -244,19 +244,16 @@
         });
 
         FB.api('/me', function (response) {
-
-        var facebook_id = Parse.object.extend("Facebook_ID");
-        var fb_id = new facebook_id();  
-        fb_id.set("String",id);
-        console.log('set new table');
         });
 
         $("#fancybox-manual-b").click(function() {
         var personalinfo = Parse.Object.extend("personalinfo") ;
         var info_p = new personalinfo();
 
-
+        FB.api('/me', function (response) {
         info_p.set("fb_id", id);
+        console.log(fb_id);
+        });
 
         $.fancybox.open({
           href : 'create.html',
