@@ -257,7 +257,7 @@
 
       $(document).ready(function(){
         var personalinfo = Parse.Object.extend("personalinfo"); 
-        var info_p = new personalinfo();
+        var info_p = new Parse.Query(personalinfo);
 
         info_p.find({
           success: function(response) {
