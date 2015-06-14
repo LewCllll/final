@@ -341,16 +341,17 @@
           info_p.save(null,{
             success: function(info_p){
               console.log(info_p);
-              alert("info_p save successfully!");
+              //  alert("info_p save successfully!");
             },
             error: function(info_p,error){
               console.log(error);
-              alert(error.message);
+             // alert(error.message);
             }
         });
         //--
         console.log('submit');
         parent.$.fancybox.close();
+        parent.reload();
 
       });
 
