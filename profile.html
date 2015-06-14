@@ -230,7 +230,11 @@
          location.reload();
       }
 
-
+      var f;
+      var j;
+      var s;
+      var starnum;
+      var inform_after;
      
 
       function testAPI() {  
@@ -257,9 +261,24 @@
             console.log(array1);
 
             var array_length = array1.length;
-            var facebookid = array1[3].get('fb_id');
-            console.log(userid);
-            console.log(facebookid);
+
+            for(var i=array_length-1; i>=0 ;i--){
+              var facebookid = array1[i].get('fb_id');
+              if(facebookid == userid){
+                console.log('haha');
+                console.log('i is'+ i);
+                f=array1[i].get('frence');
+                j=array1[i].get('japan');
+                s=array1[i].get('spain');
+                starnum=array1[i].get('star');
+                inform_after =array1[i].get('information');
+
+                console.log("French is" + f);
+                console.log("spainish is" + s);
+              }
+
+            }
+
           },
 
           error: function(error) {
