@@ -237,11 +237,6 @@
 
       }
 
-      if(lang_japan.checked || lang_spain.checked || lang_frence.checked){
-        fblogin();
-        console.log('fblogin is set!!');
-      }
-
      
       $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
@@ -312,6 +307,11 @@
         //--
         console.log('submit');
 
+      });
+
+      $( document ).ready(function() {
+          console.log( "ready!" );
+          fblogin();
       });
 
     </script>
