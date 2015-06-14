@@ -267,13 +267,17 @@
 
               for(var i=0; i<response_length; i++){
                 var id= response[i].get('fb_id');
+                console.log(id);
+                console.log(userid);
                 if( id == userid) {
                    f=response[i].get('frence');
                    j=response[i].get('japan');
                    s=response[i].get('spain');
                    starnum=response[i].get('star');
                    inform_after =response[i].get('information');
-                  
+                    
+                   console.log("French is" + f);
+                   console.log("spainish is" + s);
                    i=response_length;
                 }
               }
