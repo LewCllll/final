@@ -182,6 +182,7 @@
               // Full docs on the response object can be found in the documentation
               // for FB.getLoginStatus().
              userid=response.authResponse.userID;
+             console.log('here comes userid' +userid);
             if (response.status === 'connected') {
                 // Logged into your app and Facebook.
                 var IfLoggedIn=document.getElementById("LogIn");
