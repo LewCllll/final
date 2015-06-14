@@ -272,6 +272,7 @@
                 s=array1[i].get('spain');
                 starnum=array1[i].get('star');
                 inform_after =array1[i].get('information');
+                pref= array1[i].get('preference');
 
                 i=-1;
               }
@@ -288,6 +289,10 @@
             if(j== true){
               $('#language').append("JAPAN ");
             }
+
+            $('#star').append(starnum);
+            $('#prefer').append(pref);
+            $('#more_inform').append(inform_after);
 
 
           },
@@ -476,9 +481,9 @@
     <article id="profile">
       <div class="profile_info">
         <span>LANGUAGE:<span id="language"></span></span><br>
-        <span>LEVEL:<span id="star"></span> STAR</span>
-        <span>PREFER:<div id="prefer"></div></span>
-        <span>MORE INFORMATION:<div id="more_inform"></div></span>
+        <span>LEVEL:<span id="star"></span> STAR</span><br>
+        <span>PREFER:<span id="prefer"></span></span><br>
+        <span>MORE INFORMATION:<span id="more_inform"></span></span>
       </div>
 
       <div class="comment">
