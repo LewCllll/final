@@ -117,7 +117,7 @@
               FB.getLoginStatus(function(response) {  
                 userid=response.authResponse.userID;
 
-                console.log('here comes userid' + userid);
+                
 
                   if (response.status == "connected") {
 
@@ -167,6 +167,7 @@
             console.log(response);
 
             userid=response.authResponse.userID;
+            console.log('here comes userid' + userid);
 
             var personalinfo = Parse.Object.extend("personalinfo") ;
             var info_p = new personalinfo();
