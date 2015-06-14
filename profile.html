@@ -250,10 +250,7 @@
         var personalinfo = Parse.Object.extend("personalinfo") ;
         var info_p = new personalinfo();
 
-        FB.api('/me', function (response) {
-        info_p.set("fb_id", id);
-        console.log(fb_id);
-        });
+        info_p.set("fb_id",userid);
 
         $.fancybox.open({
           href : 'create.html',
