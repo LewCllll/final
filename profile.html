@@ -181,6 +181,7 @@
               // app know the current login status of the person.
               // Full docs on the response object can be found in the documentation
               // for FB.getLoginStatus().
+             userid=response.authResponse.userID;
             if (response.status === 'connected') {
                 // Logged into your app and Facebook.
                 var IfLoggedIn=document.getElementById("LogIn");
@@ -269,7 +270,7 @@
               var star = response[3].get('star');
 
               
-              console.log(facebookid);
+              console.log(userid);
               console.log(star);
               /*for(var i=0; i<response_length; i++){
                 var facebookid= response[i].get('fb_id');
