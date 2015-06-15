@@ -239,8 +239,7 @@
         FB.api('/me', function (response) {
         console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
-       // username = response['first_name'] +" "+ response['last_name'];
-       
+        username = response
 
         });
 
@@ -355,6 +354,15 @@
            cookie     : true,  // enable cookies to allow Parse to access the session
            xfbml      : true,  // initialize Facebook social plugins on the page
            version    : 'v2.3' // point to the latest Facebook Graph API version
+        });
+
+
+        FB.api('/me', function (response) {
+        console.log(response);
+        username = response.name;
+        console.log(username);
+        alert(username);
+
         });
 
         FB.getLoginStatus(function(response){
