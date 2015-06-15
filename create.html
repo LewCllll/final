@@ -356,15 +356,6 @@
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
 
-
-        FB.api('/me', function (response) {
-        console.log(response);
-        username = response.name;
-        console.log(username);
-        alert(username);
-
-        });
-
         FB.getLoginStatus(function(response){
           statusChangeCallback(response);
         });
