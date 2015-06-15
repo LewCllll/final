@@ -240,8 +240,7 @@
         console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
        // username = response['first_name'] +" "+ response['last_name'];
-        var username = getElementById('profile_name');
-        console.log(username);
+       
 
         });
 
@@ -259,6 +258,10 @@
           var lang_japan = document.getElementById('lang_japan');
           var lang_spain = document.getElementById('lang_spain');
           var lang_frence = document.getElementById('lang_frence');
+
+          var username = getElementById('profile_name');
+          console.log(username);
+
 
           info_p.set("japan",false);
           info_p.set("spain",false);
