@@ -172,9 +172,6 @@
             userid=response.authResponse.userID;
             console.log(userid);
 
-            username = response['name'];
-            console.log(username);
-
             var personalinfo = Parse.Object.extend("personalinfo") ;
             var info_p = new personalinfo();
 
@@ -247,13 +244,8 @@
 
         });
 
-        FB.api('/me', function (response) {
-
-
-        fb_id.set("String",id);
-        console.log('set new table');
-
-        });
+        username = response['name'];
+        console.log(username);
 
       }
 
@@ -381,11 +373,6 @@
                 // get user id
                 userid=response.authResponse.userID;
                 console.log('usererid: '+userid);
-
-                username = response['name'];
-                console.log(username);
-
-
             }
         });
             
@@ -401,6 +388,7 @@
           }
         });
           // Run code after the Facebook SDK is loaded.
+        testAPI();
         };
 
         (function(d, s, id){
