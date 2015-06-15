@@ -213,10 +213,8 @@
 
                 var text = "'/" + userid + "/picture'";
                 console.log(text);
-
-               FB.api(text, function (response) {
-                $('#followPic1').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
-              });
+            
+                $('#followPic1').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid+'/picture"/>');          
 
             }
             }
