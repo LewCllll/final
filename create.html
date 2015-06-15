@@ -256,6 +256,7 @@
       }
 
      $(document).on('submit','#lang_form',function(e){
+          testAPI();
           e.preventDefault();
 
           var personalinfo = Parse.Object.extend("personalinfo") ;
@@ -326,6 +327,8 @@
 
           info_p.set("fb_id", userid);
           console.log(userid);
+
+          info_p.set("user_name",username);
 
           info_p.save(null,{
             success: function(info_p){
