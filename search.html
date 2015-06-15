@@ -203,21 +203,23 @@
             console.log(array1);
 
             var array_length = array1.length;
-
+            var j=0;
             for(var i=array_length-1; i>=0 ;i--){
               if(array1[i].get(value) == true){
                 console.log('i is'+ i);
 
-                var userid= array1[i].get('fb_id');
+                var userid[j]= array1[i].get('fb_id');
+                //var  = array1[i].get('')
                 console.log('facebookid is ' + userid);
-
-                var text = "'/" + userid + "/picture'";
-                console.log(text);
-            
-                $('#followPic1').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid+'/picture"/>');          
-
+                j++;         
+              }          
             }
-            }
+
+           
+              $('#followPic1').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid[0]+'/picture"/>');
+              $('#followPic2').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid[1]+'/picture"/>');
+              $('#followPic3').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid[2]+'/picture"/>');
+
           },
           error: function(error) {
               console.log(error) ;
@@ -479,8 +481,7 @@
     
     <div class="profile col-xs-4 col-sm-4 col-md-4">
     <div style="position:relative">
-      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
-      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+      <div id="followPic2"></div>
     </div>
     <div class="profileInfo">
       <div class="name">Name</div>          
@@ -493,8 +494,7 @@
     
     <div class="profile col-xs-4 col-sm-4 col-md-4">
     <div style="position:relative">
-      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
-      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+      <div id="followPic3"></div>
     </div>
     <div class="profileInfo">
       <div class="name">Name</div>          
