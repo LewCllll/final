@@ -332,41 +332,41 @@
 
             if(count==0) {
                 console.log('new user');
-                i = array_length;
 
-                array1[i].set("japan",false);
-                array1[i].set("spain",false);
-                array1[i].set("frence",false);
+
+                info_p.set("japan",false);
+                info_p.set("spain",false);
+                info_p.set("frence",false);
 
                 if(lang_japan.checked){
-                array1[i].set("japan", true);
+                info_p.set("japan", true);
                 }
                 if(lang_frence.checked){
-                  array1[i].set("frence",true);
+                  info_p.set("frence",true);
                 }
                 if(lang_spain.checked){
-                array1[i].set("spain", true);
+                info_p.set("spain", true);
                 }
                 else {
                   console.log('no lang');
                 }
 
-                array1[i].set("star",0);
+                info_p.set("star",0);
 
                 if(star1.checked){
-                  array1[i].set("star",1);
+                  info_p.set("star",1);
                 }
                 if(star2.checked){
-                  array1[i].set("star",2);
+                  info_p.set("star",2);
                 }
                 if(star3.checked){
-                  array1[i].set("star",3);
+                  info_p.set("star",3);
                 }
                 if(star4.checked){
-                  array1[i].set("star",4);
+                  info_p.set("star",4);
                 }
                 if(star5.checked){
-                  array1[i].set("star",5);
+                  info_p.set("star",5);
                 }
 
                 else{  
@@ -376,14 +376,14 @@
                 var prefer = document.getElementById('prefer');
                 var preference = prefer.options[prefer.selectedIndex].text;
 
-                array1[i].set("preference", preference);
+                info_p.set("preference", preference);
 
                 var more_info = document.getElementById('more_info');
                 var text = more_info.value;
 
-                array1[i].set("information", text);
+                info_p.set("information", text);
                 
-                array1[i].set("fb_id", userid);
+                info_p.set("fb_id", userid);
                 console.log(userid);
             }
 
