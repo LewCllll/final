@@ -222,8 +222,7 @@
          });
          location.reload();
       }
-
-
+      
      
 
       function testAPI() {  
@@ -240,8 +239,7 @@
         FB.api('/me', function (response) {
                console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
-        username = response['name'];
-        console.log(username);
+        
 
         });
 
@@ -256,7 +254,6 @@
       }
 
      $(document).on('submit','#lang_form',function(e){
-          testAPI();
           e.preventDefault();
 
           var personalinfo = Parse.Object.extend("personalinfo") ;
@@ -320,15 +317,13 @@
 
           var more_info = document.getElementById('more_info');
           var text = more_info.value;
-          
+
           console.log(text);
           info_p.set("information", text);
 
 
           info_p.set("fb_id", userid);
           console.log(userid);
-
-          info_p.set("user_name",username);
 
           info_p.save(null,{
             success: function(info_p){

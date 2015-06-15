@@ -44,3 +44,23 @@
 .followers{
   float:right
 }
+
+.profile > .pic{
+  width:70px;
+  height:70px;
+}
+
+.profileInfo > div{
+  font-size:25px;
+  font-family:monospace;
+}
+
+.profileInfo > span{
+  font-size:25px;
+  font-family:monospace;
+}
+
+.profileInfo > span > span{
+  font-size: 15px;
+  font-family: serif;
+}
