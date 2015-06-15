@@ -211,8 +211,9 @@
                 console.log('facebookid is ' + userid);
 
                 var getid;
-                getid.append('/' + userid + '/picture');
-               FB.api(getid, function (response) {
+                //getid.append('' + userid + '/picture');
+
+               FB.api('/me/picture', function (response) {
                 $('#followPic1').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
               });
 
