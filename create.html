@@ -239,7 +239,7 @@
         FB.api('/me', function (response) {
         console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
-        username = response.first_name +" "+ response.last_name;
+        username = response['first_name'] +" "+ response['last_name'];
 
         console.log(username);
 
