@@ -45,9 +45,9 @@
   float:right
 }
 
-.profile > .pic > img{
-  width:70px;
-  height:70px;
+.pict{
+  width:100px;
+  height:100px;
 }
 
 .profileInfo > div{
@@ -58,6 +58,5 @@
 .profileInfo > span{
   font-size:25px;
   font-family:monospace;
-  margin:10px 20px;
 }
 
