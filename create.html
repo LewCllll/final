@@ -30,7 +30,7 @@
        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
        var userid;
        var username;
-
+       
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
@@ -237,19 +237,20 @@
         });
 
         FB.api('/me', function (response) {
-               console.log(response);
+        console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
-        
+        username = response.name;
+        console.log(username);
 
         });
 
-        username = response['name'];
-        console.log(username);
+
 
       }
 
      $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
+
 
           var personalinfo = Parse.Object.extend("personalinfo") ;
           var info_p = new personalinfo();
@@ -317,12 +318,8 @@
           info_p.set("information", text);
 
 
-          console.log(username);
           info_p.set("fb_id", userid);
           console.log(userid);
-
-          info_p.set("name",username);
-          console.log('set name!!!');
 
           info_p.save(null,{
             success: function(info_p){
@@ -373,6 +370,10 @@
                 // get user id
                 userid=response.authResponse.userID;
                 console.log('usererid: '+userid);
+
+
+
+
             }
         });
             
@@ -387,8 +388,9 @@
               });
           }
         });
-          // Run code after the Facebook SDK is loaded.
+
         testAPI();
+          // Run code after the Facebook SDK is loaded.
         };
 
         (function(d, s, id){
