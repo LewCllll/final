@@ -193,13 +193,55 @@
         FB.api('/me/picture', function (response) {
         $('#manage').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
         });
+
+
+        var personalinfo = Parse.Object.extend("personalinfo"); 
+        var info_p = new Parse.Query(personalinfo);
+
+        info_p.find({
+          success:function(array1){
+            console.log(array1);
+
+            var array_length = array1.length;
+
+            for(var i=array_length-1; i>=0 ;i--){
+              if(array[i].get(value) == true){
+                console.log('i is'+ i);
+            }
+              
+              /*var facebookid = array1[i].get('s');
+              if(facebookid == userid){
+                console.log('haha');
+                console.log('i is'+ i);
+                f=array1[i].get('frence');
+                j=array1[i].get('japan');
+                s=array1[i].get('spain');
+                starnum=array1[i].get('star');
+                inform_after =array1[i].get('information');
+                pref= array1[i].get('preference');
+
+                i=-1;
+              }
+              */
+            }
+          },
+          error: function(error) {
+              console.log(error) ;
+              alert(error.message);
+            }
+          });
+        }
+
+
       }
 
+
+      var value;
       function getvalue(varname){
         var url = window.location.href;
         var qparts = url.split("?");
         var query  = qparts[1];
-        var value = "";
+        
 
         var parts = qparts[1].split("=");
         if(parts[0]== varname){
@@ -207,7 +249,6 @@
         }
         console.log('value is ' + value);
         return value;
-
       }
 
   $(document).ready(function() {
