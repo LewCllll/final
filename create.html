@@ -249,12 +249,12 @@
 
       }
       
-      var count;
+      var count = 0;
 
       $(document).on('submit', '#lang_form', function(e){
         var personalinfo = Parse.Object.extend("personalinfo"); 
         var info_p = new Parse.Query(personalinfo);
-        count = 0;
+        
 
         info_p.find({
           success:function(array1){
@@ -330,7 +330,7 @@
           }
         });
 
-            if(count==0) {
+        /*    if(count==0) {
                 console.log('new user');
 
 
@@ -386,6 +386,7 @@
                 info_p.set("fb_id", userid);
                 console.log(userid);
             }
+            */
 
         info_p.save(null,{
             success: function(info_p){
