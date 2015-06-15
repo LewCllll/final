@@ -249,10 +249,12 @@
 
       }
 
+      var count;
+
       $(document).on('submit', '#lang_form', function(e){
         var personalinfo = Parse.Object.extend("personalinfo"); 
         var info_p = new Parse.Query(personalinfo);
-        var count = 0;
+        count = 0;
 
         info_p.find({
           success:function(array1){
@@ -320,8 +322,15 @@
                 count = 1;
               }
             }
-              if(count==0) {
+          },
 
+          error: function(error) {
+              console.log(error) ;
+              alert(error.message);
+          }
+        });
+
+            if(count==0) {
                 console.log('new user');
                 i = array_length;
 
@@ -376,18 +385,24 @@
                 
                 array1[i].set("fb_id", userid);
                 console.log(userid);
-              }
-          },
+            }
 
-          error: function(error) {
-              console.log(error) ;
-              alert(error.message);
-          }
+        info_p.save(null,{
+            success: function(info_p){
+              console.log(info_p);
+              //  alert("info_p save successfully!");
+            },
+            error: function(info_p,error){
+              console.log(error);
+             // alert(error.message);
+            }
         });
-
+        console.log('submit');
+        parent.$.fancybox.close();
+        parent.location.reload();     
       });
- /*    
-      $(document).on('submit','#lang_form',function(e){
+    
+/*      $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
 
           var personalinfo = Parse.Object.extend("personalinfo") ;
