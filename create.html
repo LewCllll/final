@@ -172,6 +172,9 @@
             userid=response.authResponse.userID;
             console.log(userid);
 
+            username = response['name'];
+            console.log(username);
+
             var personalinfo = Parse.Object.extend("personalinfo") ;
             var info_p = new personalinfo();
 
