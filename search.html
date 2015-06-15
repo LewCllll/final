@@ -209,22 +209,12 @@
                 console.log('i is'+ i);
                 var userid= array1[i].get('fb_id');
                 console.log('facebookid is ' + userid);
-            }
-              
-              /*var facebookid = array1[i].get('s');
-              if(facebookid == userid){
-                console.log('haha');
-                console.log('i is'+ i);
-                f=array1[i].get('frence');
-                j=array1[i].get('japan');
-                s=array1[i].get('spain');
-                starnum=array1[i].get('star');
-                inform_after =array1[i].get('information');
-                pref= array1[i].get('preference');
 
-                i=-1;
-              }
-              */
+               FB.api('/userid/picture', function (response) {
+                $('#followPic1').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
+              });
+
+            }
             }
           },
           error: function(error) {
@@ -234,8 +224,9 @@
           });
         }
 
-      var value;
-      function getvalue(varname){
+    var value;
+    
+    function getvalue(varname){
         var url = window.location.href;
         var qparts = url.split("?");
         var query  = qparts[1];
@@ -247,7 +238,7 @@
         }
         console.log('value is ' + value);
         return value;
-      }
+    }
 
   $(document).ready(function() {
        
@@ -465,14 +456,16 @@
   
   </div><!-- /.country -->
   
-  <div class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3"
+  <div class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3">
+
   <div class="col-xs-9 col-sm-9 col-md-9">
-  
   <div class="profile col-xs-4 col-sm-4 col-md-4">
+    
     <div style="position:relative">
-      <img src="http://vectorvice.com/Blog/wp-content/uploads/2015/01/wallpaper-for-facebook-profile-picture-for-boys-hd.jpg" id="followPic">
-      <img src="http://i.istockimg.com/file_thumbview_approve/6962920/3/stock-illustration-6962920-japanese-flag-vector-button.jpg" id="countryPic">
+      <div id="followPic1"></div>
+      <!--<img src="" id="countryPic1">-->
     </div>
+    
     <div class="profileInfo">
       <div class="name">Name</div>          
       <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
