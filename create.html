@@ -29,6 +29,7 @@
     <script>
        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
        var userid;
+       var username;
 
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
@@ -56,6 +57,7 @@
 
                 // get user id
                 userid=response.authResponse.userID;
+                
                 console.log('usererid: '+userid);
 
 
@@ -221,6 +223,7 @@
          location.reload();
       }
 
+
      
 
       function testAPI() {  
@@ -237,6 +240,9 @@
         FB.api('/me', function (response) {
                console.log(response);
         $('#profile_name').append(response['first_name']+ "  " + response['last_name']);
+        username = response['name'];
+        console.log(username);
+
         });
 
         FB.api('/me', function (response) {
@@ -248,161 +254,7 @@
         });
 
       }
-     /* 
-      var count = 0;
 
-      $(document).on('submit', '#lang_form', function(e){
-        var personalinfo = Parse.Object.extend("personalinfo"); 
-        var info_p = new Parse.Query(personalinfo);
-        
-
-        info_p.find({
-          success:function(array1){
-            console.log(array1);
-            var array_length = array1.length;
-            var lang_japan = document.getElementById('lang_japan');
-            var lang_spain = document.getElementById('lang_spain');
-            var lang_frence = document.getElementById('lang_frence');
-
-            for(var i=array_length-1; i>=0 ;i--){
-              var facebookid = array1[i].get('fb_id');
-              if(userid == facebookid){
-                console.log('find old user');
-                console.log('i is'+ i);
-                
-                array1[i].set("japan",false);
-                array1[i].set("spain",false);
-                array1[i].set("frence",false);
-
-                if(lang_japan.checked){
-                array1[i].set("japan", true);
-                }
-                if(lang_frence.checked){
-                  array1[i].set("frence",true);
-                }
-                if(lang_spain.checked){
-                array1[i].set("spain", true);
-                }
-                else {
-                  console.log('no lang');
-                }
-
-                array1[i].set("star",0);
-
-                if(star1.checked){
-                  array1[i].set("star",1);
-                }
-                if(star2.checked){
-                  array1[i].set("star",2);
-                }
-                if(star3.checked){
-                  array1[i].set("star",3);
-                }
-                if(star4.checked){
-                  array1[i].set("star",4);
-                }
-                if(star5.checked){
-                  array1[i].set("star",5);
-                }
-
-                else{  
-                  console.log('no comment');
-                }
-
-                var prefer = document.getElementById('prefer');
-                var preference = prefer.options[prefer.selectedIndex].text;
-
-                array1[i].set("preference", preference);
-
-                var more_info = document.getElementById('more_info');
-                var text = more_info.value;
-
-                array1[i].set("information", text);
-                i=-1;
-                count = 1;
-              }
-            }
-          },
-
-          error: function(error) {
-              console.log(error) ;
-              alert(error.message);
-          }
-        });
-
-        /*    if(count==0) {
-                console.log('new user');
-
-
-                info_p.set("japan",false);
-                info_p.set("spain",false);
-                info_p.set("frence",false);
-
-                if(lang_japan.checked){
-                info_p.set("japan", true);
-                }
-                if(lang_frence.checked){
-                  info_p.set("frence",true);
-                }
-                if(lang_spain.checked){
-                info_p.set("spain", true);
-                }
-                else {
-                  console.log('no lang');
-                }
-
-                info_p.set("star",0);
-
-                if(star1.checked){
-                  info_p.set("star",1);
-                }
-                if(star2.checked){
-                  info_p.set("star",2);
-                }
-                if(star3.checked){
-                  info_p.set("star",3);
-                }
-                if(star4.checked){
-                  info_p.set("star",4);
-                }
-                if(star5.checked){
-                  info_p.set("star",5);
-                }
-
-                else{  
-                  console.log('no comment');
-                }
-
-                var prefer = document.getElementById('prefer');
-                var preference = prefer.options[prefer.selectedIndex].text;
-
-                info_p.set("preference", preference);
-
-                var more_info = document.getElementById('more_info');
-                var text = more_info.value;
-
-                info_p.set("information", text);
-                
-                info_p.set("fb_id", userid);
-                console.log(userid);
-            }
-            
-
-        info_p.save(null,{
-            success: function(info_p){
-              console.log(info_p);
-              //  alert("info_p save successfully!");
-            },
-            error: function(info_p,error){
-              console.log(error);
-             // alert(error.message);
-            }
-        });
-        console.log('submit');
-        parent.$.fancybox.close();
-        parent.location.reload();     
-      });
-    */
      $(document).on('submit','#lang_form',function(e){
           e.preventDefault();
 
