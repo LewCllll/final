@@ -205,14 +205,26 @@
             var array_length = array1.length;
             var j=0;
             var userid = [];
+            var same;
+
             for(var i=array_length-1; i>=0 ;i--){
+              same= false;
+              
               if(array1[i].get(value) == true){
                 console.log('i is'+ i);
 
-                userid[j]= array1[i].get('fb_id');
-                //var  = array1[i].get('')
-                console.log('facebookid is ' + userid[j]);
-                j++;         
+                for(var k=0; k<j;k++){
+                  if(array1[i].get('fb_id')== userid[k]){
+                    same = true;
+                  }
+                }  
+                
+                if(same == false){
+                  userid[j]= array1[i].get('fb_id');
+                  //var  = array1[i].get('')
+                  console.log('facebookid is ' + userid[j]);
+                  j++; 
+                }        
               }          
             }
 
