@@ -199,11 +199,10 @@
       }
 
   $(document).ready(function() {
-        getvalue("lang");
-        console.log('doing getvalue');
-         Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
        
-       window.fbAsyncInit = function() {
+        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
+
+        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
            appId      : '836005236481666', // Facebook App ID
            status     : true,  // check Facebook Login status
@@ -211,7 +210,6 @@
            xfbml      : true,  // initialize Facebook social plugins on the page
            version    : 'v2.3' // point to the latest Facebook Graph API version
         });
-
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
         });
@@ -245,6 +243,9 @@
           }
         });
           // Run code after the Facebook SDK is loaded.
+        getvalue("lang");
+        console.log('doing getvalue');
+       
         };
 
         (function(d, s, id){
@@ -256,6 +257,8 @@
         }(document, 'script', 'facebook-jssdk'));
       });
 
+
+      
 
     </script>
 
