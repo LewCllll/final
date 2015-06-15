@@ -210,7 +210,8 @@
                 var userid= array1[i].get('fb_id');
                 console.log('facebookid is ' + userid);
 
-                var getid = append('/' + userid + '/picture');
+                var getid;
+                getid.append('/' + userid + '/picture');
                FB.api(getid, function (response) {
                 $('#followPic1').html("<img src="+response.data.url+" crossorigin=\"anonymous\" id=preview1 />");          
               });
