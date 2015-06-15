@@ -205,11 +205,13 @@
             var array_length = array1.length;
             var j=0;
             var userid = [];
+            var userinfo = [];
+            var userrate = [];
             var same;
 
             for(var i=array_length-1; i>=0 ;i--){
               same= false;
-              
+
               if(array1[i].get(value) == true){
                 console.log('i is'+ i);
 
@@ -221,7 +223,8 @@
                 
                 if(same == false){
                   userid[j]= array1[i].get('fb_id');
-                  //var  = array1[i].get('')
+                  userinfo[j] = array1[i].get('information');
+                  userrate[j]= array1[i].get('star');
                   console.log('facebookid is ' + userid[j]);
                   j++; 
                 }        
@@ -230,9 +233,15 @@
 
            
             $('#followPic1').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid[0]+'/picture"/>');
+            $('#info1').append(userinfo[0]);
+            $('#rate1').append(userrate[0]);
+          
             $('#followPic2').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid[1]+'/picture"/>');
+            $('#info2').append(userinfo[1]);
+            $('#rate2').append(userrate[1]);
             $('#followPic3').html('<img class="img-rounded" src="http://graph.facebook.com/'+userid[2]+'/picture"/>');
-
+            $('#info3').append(userinfo[2]);
+            $('#rate3').append(userrate[2]);
           },
           error: function(error) {
               console.log(error) ;
@@ -484,10 +493,10 @@
     </div>
     
     <div class="profileInfo">
-      <div class="name">Name</div>          
-      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
-      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
-      <span class="followers">Follower: <span id="followNum">1</span></span>
+      <div class="name" id="name1"></div>          
+      <div class="description" id="info1"></div>
+      <span class="rating" id="rate1"></span>STARS
+      <!--<span class="followers">Follower: <span id="followNum">1</span></span>-->
     </div>
     
   </div><!-- /.profile -->
@@ -497,10 +506,9 @@
       <div id="followPic2"></div>
     </div>
     <div class="profileInfo">
-      <div class="name">Name</div>          
-      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
-      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
-      <span class="followers">Follower: <span id="followNum">1</span></span>
+      <div class="name" id="name2"></div>          
+      <div class="description" id="info2"></div>
+      <span class="rating" id="rate2"></span>STARS
     </div>
     
   </div><!-- /.profile -->
@@ -510,10 +518,9 @@
       <div id="followPic3"></div>
     </div>
     <div class="profileInfo">
-      <div class="name">Name</div>          
-      <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin in tellus at accumsan. </div>
-      <span class="rating">&#9733&#9733&#9733&#9733&#9733</span>
-      <span class="followers">Follower: <span id="followNum">1</span></span>
+      <div class="name" id="name3"></div>          
+      <div class="description" id="info3"></div>
+      <span class="rating" id="rate3"></span>STARS
     </div>
     
   </div><!-- /.profile -->
