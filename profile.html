@@ -45,6 +45,24 @@
     <script>
        Parse.initialize("B3rWaehmMfGulevJwCfAIBEaSANdb29e0YZs0OU4", "wMLWm7nzcaQKpgIvzSpvGUe0MfmMNmFStfoNSGYT");
        var userid;
+       
+       $(document).on('submit','#commentType',function(eventObject){
+         eventObject.preventDefault();
+         var Comment = Parse.Object.extend("Comment") ;
+         var comment = new Comment();
+         comment.set("message",$("#comment").val());
+         comment.set("writer",Parse.User.current());
+         comment.save({
+           success : function(savedParseObject){
+           alert("留言成功");
+           window.location.reload();
+           },
+           error : function (errorObject){
+             console.log(errorObject);
+             alert(errorObject.message);
+           }
+         });
+       });
 
        window.fbAsyncInit = function() {
         Parse.FacebookUtils.init({ // this line replaces FB.init({
@@ -528,14 +546,15 @@
         </div>
       </div>
 
-      <div class="comment_type">
-        <div class="rating">
-          <p>Rating:
-          <span>※※※※※</span></p>
-        </div>
-        <div class="comment_typecontents">
-          <input type="text" id="contents" placeholder="Type your comments !!">
-        </div>
+        <form id="commentType" class="form-horizontal">
+          <div class="form-group">
+              <textarea class="form-control" placeholder="Comment here!" id="comment" name="comment"></textarea>
+          </div>
+
+          <div class="form-group">
+            <button id="commentSubmit" name="commentSubmit" class="btn btn-primary">送出</button>
+          </div>
+        </form>
 
       </div>
     </article>
